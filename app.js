@@ -179,7 +179,7 @@ function renderStatic() {
   const language = LANGUAGES[settings.language];
   document.documentElement.lang = settings.language;
   document.documentElement.dataset.theme = settings.theme;
-  document.querySelector('meta[name="theme-color"]').content = settings.theme === 'dark' ? '#192e27' : '#dce7df';
+  document.querySelector('meta[name="theme-color"]').content = settings.theme === 'dark' ? '#1d1e1e' : '#e9e9e7';
   document.querySelectorAll('[data-i18n]').forEach(node => { node.textContent = t(node.dataset.i18n); });
   document.querySelectorAll('[data-i18n-aria]').forEach(node => { node.setAttribute('aria-label', t(node.dataset.i18nAria)); });
   $('language').value = settings.language;
@@ -229,6 +229,7 @@ function resetTest(shouldFocus = false) {
   createCharacterNodes(passage);
   updateStatus();
   $('timer').textContent = formatClock(settings.duration);
+  $('timeProgress').style.transform = 'scaleX(1)';
   $('wpm').textContent = '0';
   $('accuracy').textContent = '100';
   $('errors').textContent = '0';
@@ -254,7 +255,9 @@ function refreshLive(now = Date.now()) {
   $('wpm').textContent = String(values.wpm);
   $('accuracy').textContent = String(values.accuracy);
   $('errors').textContent = String(values.errors);
-  $('timer').textContent = formatClock(session.status === 'waiting' ? settings.duration : Math.max(0, (session.endAt - now) / 1000));
+  const remaining = session.status === 'waiting' ? settings.duration : Math.max(0, (session.endAt - now) / 1000);
+  $('timer').textContent = formatClock(remaining);
+  $('timeProgress').style.transform = `scaleX(${Math.max(0, Math.min(1, remaining / settings.duration))})`;
 }
 function startTest(now) {
   session.status = 'running';

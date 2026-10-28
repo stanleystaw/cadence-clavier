@@ -1,0 +1,14 @@
+{
+  "buildCommand": "mkdir -p public && cp index.html style.css app.js public/",
+  "outputDirectory": "public",
+  "installCommand": "echo pas-de-dependances",
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+      ]
+    }
+  ]
+}

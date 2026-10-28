@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#dce7df">
+  <meta name="theme-color" content="#e9e9e7">
   <meta name="description" content="Cadence, un espace de frappe pour progresser à votre rythme.">
   <title>Cadence — votre espace de frappe</title>
   <link rel="icon" href="data:,">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@400;500;600&family=Public+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./style.css">
   <script src="./app.js" defer></script>
 </head>
@@ -95,6 +95,7 @@
                 <strong id="timer" aria-live="off">00:30</strong>
               </div>
             </div>
+            <div class="time-rail" aria-hidden="true"><div id="timeProgress"></div></div>
             <div class="input-wrap" id="inputWrap">
               <div id="textViewport" class="text-viewport" aria-hidden="true"><div id="passage"></div></div>
               <label class="sr-only" for="typingInput" data-i18n="inputLabel">Tapez le texte affiché ici</label>

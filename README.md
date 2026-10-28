@@ -10,13 +10,13 @@ Ouvrir `index.html` dans un navigateur récent, ou lancer un serveur local depui
 python3 -m http.server 4173
 ```
 
-Le site est statique : aucun paquet, clé ou variable d’environnement n’est nécessaire. Il peut être déployé directement sur Vercel avec le réglage « Other » / site statique. Les polices Public Sans et Azeret Mono sont fournies par Google Fonts ; des polices système sont utilisées si elles ne sont pas accessibles.
+Le site est statique : aucun paquet, clé ou variable d’environnement n’est nécessaire. Il peut être déployé directement sur Vercel avec le réglage « Other » / site statique. Les polices Barlow, Barlow Condensed et IBM Plex Mono sont fournies par Google Fonts ; des polices système sont utilisées si elles ne sont pas accessibles.
 
 ## Fonctionnalités
 
 - Tests de 15, 30, 60 ou 120 secondes, démarrant à la première frappe.
 - Exercices de mots ou de phrases, avec ponctuation et chiffres en option.
-- Vitesse, précision et erreurs en temps réel ; les corrections restent prises en compte dans la précision.
+- Vitesse, précision, erreurs et barre de temps en direct ; les corrections restent prises en compte dans la précision.
 - Résultat partageable, historique local, record, moyenne et graphique des derniers tests.
 - Thème clair ou sombre, retour sonore facultatif et raccourci Échap pour recommencer.
 - Préférences et résultats enregistrés uniquement dans le stockage local du navigateur. Les effacer, changer de navigateur ou d’appareil les supprime ou les rend indisponibles ailleurs.
