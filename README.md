@@ -22,9 +22,13 @@ Après une première visite en ligne et la mise en cache de l’application, les
 
 - Tests de 15, 30, 60 ou 120 secondes, démarrant à la première frappe.
 - Mots ou phrases, ponctuation et chiffres en option.
+- Extraits de code en Python, JavaScript, TypeScript, HTML, CSS, SQL, Java, C++, Go et Rust, avec indentation au clavier.
+- Texte ou code personnel à coller (6 000 caractères maximum), conservé uniquement en mémoire dans la page et jamais envoyé par Cadence.
 - Vitesse, précision, erreurs et barre de temps en direct.
 - Résultats partageables, historique, record, moyenne et graphique.
 - Thème clair ou sombre, son facultatif et raccourci Échap pour recommencer.
+
+Dans les modes Code et Texte personnel, Tab insère l’indentation attendue au début d’une ligne ; Maj + Tab permet de naviguer au clavier. Les espaces, tabulations et retours à la ligne sont conservés. Le texte personnalisé disparaît au rechargement.
 
 La vitesse compte cinq caractères corrects par mot, divisés par le temps écoulé. La précision tient compte de toutes les frappes ajoutées, y compris les erreurs corrigées. Le chronomètre suit le temps réel, même si l’onglet est en arrière-plan.
 

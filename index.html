@@ -69,6 +69,8 @@
             <div class="segmented" role="group" aria-labelledby="formatLabel" id="modeGroup">
               <button type="button" class="choice" data-mode="words" aria-pressed="true" data-i18n="words">Mots</button>
               <button type="button" class="choice" data-mode="sentences" aria-pressed="false" data-i18n="sentences">Phrases</button>
+              <button type="button" class="choice" data-mode="code" aria-pressed="false" data-i18n="code">Code</button>
+              <button type="button" class="choice" data-mode="custom" aria-pressed="false" data-i18n="custom">Texte personnel</button>
             </div>
           </div>
           <div class="config-divider" aria-hidden="true"></div>
@@ -82,6 +84,36 @@
             </div>
           </div>
         </div>
+
+        <div class="source-panel code-source" id="codeControls" hidden>
+          <div class="source-row">
+            <label for="codeLanguage" data-i18n="programLanguage">Langage</label>
+            <select id="codeLanguage" name="code-language">
+              <option value="python">Python</option>
+              <option value="javascript">JavaScript</option>
+              <option value="typescript">TypeScript</option>
+              <option value="html">HTML</option>
+              <option value="css">CSS</option>
+              <option value="sql">SQL</option>
+              <option value="java">Java</option>
+              <option value="cpp">C++</option>
+              <option value="go">Go</option>
+              <option value="rust">Rust</option>
+            </select>
+            <button class="source-action" type="button" id="nextSnippet" data-i18n="nextSnippet">Autre extrait</button>
+          </div>
+          <p class="source-hint" data-i18n="indentHint">Tab insère l’indentation attendue. Maj + Tab change de champ.</p>
+        </div>
+        <section class="source-panel custom-source" id="customControls" aria-labelledby="customSourceLabel" hidden>
+          <label id="customSourceLabel" for="customSource" data-i18n="customPrompt">Collez le texte ou le code à recopier</label>
+          <p class="source-hint" id="customHelp" data-i18n="customPrivacy">Ce texte n’est ni envoyé ni enregistré par Cadence.</p>
+          <p class="source-hint" data-i18n="indentHint">Tab insère l’indentation attendue. Maj + Tab change de champ.</p>
+          <textarea id="customSource" name="custom-source" rows="5" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" aria-describedby="customHelp customMessage"></textarea>
+          <div class="custom-actions">
+            <button class="primary-button" type="button" id="useCustom" data-i18n="useCustom">Charger le texte</button>
+            <p class="source-message" id="customMessage" role="status" aria-live="polite"></p>
+          </div>
+        </section>
 
         <div class="typing-card" id="typingCard">
           <div id="typingView">
@@ -97,7 +129,7 @@
             </div>
             <div class="time-rail" aria-hidden="true"><div id="timeProgress"></div></div>
             <div class="input-wrap" id="inputWrap">
-              <div id="textViewport" class="text-viewport" aria-hidden="true"><div id="passage"></div></div>
+              <div id="textViewport" class="text-viewport" aria-hidden="true"><div id="passage"></div><p class="empty-passage" id="emptyPassage" data-i18n="emptyPassage" hidden>Ajoutez un texte pour commencer.</p></div>
               <label class="sr-only" for="typingInput" data-i18n="inputLabel">Tapez le texte affiché ici</label>
               <p class="sr-only" id="accessiblePassage"></p>
               <textarea id="typingInput" name="typing-test" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" aria-describedby="typingHint accessiblePassage"></textarea>
@@ -138,8 +170,8 @@
         <div class="options-row">
           <span class="options-title" data-i18n="options">Options</span>
           <div class="option-controls">
-            <label class="switch-label"><input type="checkbox" id="punctuation"><span class="switch" aria-hidden="true"></span><span data-i18n="punctuation">Ponctuation</span></label>
-            <label class="switch-label"><input type="checkbox" id="numbers"><span class="switch" aria-hidden="true"></span><span data-i18n="numbers">Chiffres</span></label>
+            <label class="switch-label" id="punctuationOption"><input type="checkbox" id="punctuation"><span class="switch" aria-hidden="true"></span><span data-i18n="punctuation">Ponctuation</span></label>
+            <label class="switch-label" id="numbersOption"><input type="checkbox" id="numbers"><span class="switch" aria-hidden="true"></span><span data-i18n="numbers">Chiffres</span></label>
             <label class="switch-label"><input type="checkbox" id="sound"><span class="switch" aria-hidden="true"></span><span data-i18n="sound">Son</span></label>
           </div>
         </div>

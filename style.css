@@ -82,11 +82,22 @@ h1 { max-width: 830px; font-family: var(--display); font-size: clamp(68px, 7.4vw
 .configuration { display: flex; flex-wrap: wrap; align-items: end; gap: 26px; padding: 19px 0 20px; }
 .config-group { display: flex; flex-direction: column; gap: 8px; }
 .config-label, .options-title { font-size: 12px; color: var(--muted); font-weight: 700; }
-.segmented { display: inline-flex; align-items: center; gap: 3px; }
+.segmented { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 3px; }
 .choice { border: 1px solid transparent; border-radius: 0; min-height: 37px; padding: 7px 13px; background: transparent; color: var(--muted); font-size: 13px; font-weight: 700; cursor: pointer; }
 .choice:hover { border-color: var(--line); color: var(--ink); }
 .choice[aria-pressed='true'] { background: var(--ink); border-color: var(--ink); color: var(--paper); }
 .config-divider { height: 35px; width: 1px; background: var(--line); margin-bottom: 1px; }
+.source-panel { padding: 0 0 18px; }
+.source-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.source-row label, .custom-source > label { font-size: 12px; font-weight: 700; }
+.source-row select { min-height: 38px; padding: 8px 32px 8px 10px; border: 1px solid var(--line); border-radius: 0; background: var(--paper); color: var(--ink); font-size: 12px; font-weight: 700; }
+.source-action { min-height: 38px; padding: 8px 12px; border: 1px solid var(--line); background: transparent; color: var(--ink); font-size: 12px; font-weight: 700; cursor: pointer; }
+.source-action:hover { border-color: var(--ink); }
+.source-hint { margin-top: 8px; color: var(--muted); font-size: 12px; line-height: 1.45; }
+.custom-source > label { display: block; }
+.custom-source textarea { display: block; width: 100%; min-height: 120px; margin-top: 11px; padding: 12px; border: 1px solid var(--line); border-radius: 0; resize: vertical; background: var(--paper); color: var(--ink); font-family: var(--mono); font-size: 13px; line-height: 1.55; tab-size: 4; }
+.custom-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 10px; }
+.source-message { color: var(--muted); font-size: 12px; line-height: 1.4; }
 .typing-card { background: var(--paper); border: 1px solid var(--line); border-left: 5px solid var(--accent); border-radius: 0; }
 .typing-card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; padding: 21px 23px 0; }
 .typing-card-top > div:first-child { display: flex; flex-direction: column; gap: 5px; }
@@ -100,6 +111,8 @@ h1 { max-width: 830px; font-family: var(--display); font-size: clamp(68px, 7.4vw
 .input-wrap { position: relative; margin: 18px 23px 19px; }
 .input-wrap:focus-within { outline: 2px solid var(--accent); outline-offset: 6px; }
 .text-viewport { height: 6.3em; overflow: hidden; position: relative; font-family: var(--mono); font-size: clamp(18px, 1.7vw, 21px); font-weight: 400; line-height: 2.1; letter-spacing: -.65px; color: var(--untyped); white-space: pre-wrap; overflow-wrap: anywhere; }
+.typing-card.is-code .text-viewport { height: 10.2em; font-size: 16px; line-height: 1.7; letter-spacing: 0; tab-size: 4; }
+.empty-passage { color: var(--muted); font-family: var(--font); font-size: 14px; line-height: 1.5; }
 .char { position: relative; }
 .char.correct { color: var(--ink); }
 .char.incorrect { color: var(--error); background: var(--error-bg); }
@@ -219,6 +232,7 @@ kbd { display: inline-block; border: 1px solid var(--line); padding: 3px 6px; co
   .configuration { gap: 14px; padding: 17px 0; }
   .config-divider { display: none; }
   .config-group { gap: 7px; }
+  #modeGroup { max-width: 100%; }
   .duration-group { width: 100%; }
   .choice { padding: 7px 12px; }
   .typing-card-top { padding: 18px 17px 0; }
@@ -226,6 +240,7 @@ kbd { display: inline-block; border: 1px solid var(--line); padding: 3px 6px; co
   .time-rail { margin: 17px 17px 0; }
   .input-wrap { margin: 16px 17px 17px; }
   .text-viewport { font-size: 16px; line-height: 2.2; height: 6.6em; }
+  .typing-card.is-code .text-viewport { height: 9.6em; font-size: 14px; line-height: 1.6; }
   .typing-card-bottom { padding: 13px 17px 14px; }
   .typing-card-bottom p { max-width: 175px; font-size: 11px; }
   .restart-button { font-size: 11px; }

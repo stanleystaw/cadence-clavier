@@ -108,9 +108,130 @@ const INSTALL_TEXT = {
 };
 Object.keys(INSTALL_TEXT).forEach(language => Object.assign(LANGUAGES[language].ui, INSTALL_TEXT[language]));
 
+const FEATURE_TEXT = {
+  "fr": {
+    "code": "Code",
+    "custom": "Texte personnel",
+    "programLanguage": "Langage",
+    "nextSnippet": "Autre extrait",
+    "indentHint": "Tab insère l’indentation attendue. Maj + Tab change de champ.",
+    "customPrompt": "Collez le texte ou le code à recopier",
+    "customPrivacy": "Ce texte n’est ni envoyé ni enregistré par Cadence.",
+    "useCustom": "Charger le texte",
+    "emptyPassage": "Ajoutez un texte pour commencer.",
+    "customEmpty": "Ajoutez du texte avant de le charger.",
+    "customTooLong": "Limite : 6 000 caractères.",
+    "customLoaded": "Texte chargé."
+  },
+  "en": {
+    "code": "Code",
+    "custom": "Custom text",
+    "programLanguage": "Language",
+    "nextSnippet": "Another snippet",
+    "indentHint": "Tab inserts the expected indentation. Shift + Tab moves focus.",
+    "customPrompt": "Paste the text or code to type",
+    "customPrivacy": "Cadence does not send or save this text.",
+    "useCustom": "Load text",
+    "emptyPassage": "Add text to get started.",
+    "customEmpty": "Add text before loading.",
+    "customTooLong": "Limit: 6,000 characters.",
+    "customLoaded": "Text loaded."
+  },
+  "es": {
+    "code": "Código",
+    "custom": "Texto propio",
+    "programLanguage": "Lenguaje",
+    "nextSnippet": "Otro fragmento",
+    "indentHint": "Tab inserta la sangría esperada. Mayús + Tab cambia de campo.",
+    "customPrompt": "Pega el texto o código que quieras copiar",
+    "customPrivacy": "Cadence no envía ni guarda este texto.",
+    "useCustom": "Cargar texto",
+    "emptyPassage": "Añade un texto para empezar.",
+    "customEmpty": "Añade texto antes de cargarlo.",
+    "customTooLong": "Límite: 6000 caracteres.",
+    "customLoaded": "Texto cargado."
+  },
+  "pt": {
+    "code": "Código",
+    "custom": "Texto próprio",
+    "programLanguage": "Linguagem",
+    "nextSnippet": "Outro trecho",
+    "indentHint": "Tab insere a indentação esperada. Shift + Tab muda de campo.",
+    "customPrompt": "Cole o texto ou código que deseja copiar",
+    "customPrivacy": "O Cadence não envia nem salva este texto.",
+    "useCustom": "Carregar texto",
+    "emptyPassage": "Adicione um texto para começar.",
+    "customEmpty": "Adicione texto antes de carregar.",
+    "customTooLong": "Limite: 6.000 caracteres.",
+    "customLoaded": "Texto carregado."
+  },
+  "de": {
+    "code": "Code",
+    "custom": "Eigener Text",
+    "programLanguage": "Sprache",
+    "nextSnippet": "Anderer Ausschnitt",
+    "indentHint": "Tab fügt die erwartete Einrückung ein. Umschalt + Tab wechselt das Feld.",
+    "customPrompt": "Füge den Text oder Code zum Abtippen ein",
+    "customPrivacy": "Cadence sendet und speichert diesen Text nicht.",
+    "useCustom": "Text laden",
+    "emptyPassage": "Füge einen Text hinzu, um zu beginnen.",
+    "customEmpty": "Füge vor dem Laden einen Text hinzu.",
+    "customTooLong": "Limit: 6.000 Zeichen.",
+    "customLoaded": "Text geladen."
+  }
+};
+Object.keys(FEATURE_TEXT).forEach(language => Object.assign(LANGUAGES[language].ui, FEATURE_TEXT[language]));
+
+const CODE_SAMPLES = {
+  "python": [
+    "def average(values):\n    if not values:\n        return 0\n    total = sum(values)\n    return total / len(values)\n\nscores = [12, 18, 15]\nprint(average(scores))",
+    "def active_names(users):\n    names = []\n    for user in users:\n        if user[\"active\"]:\n            names.append(user[\"name\"])\n    return sorted(names)\n\npeople = [{\"name\": \"Mina\", \"active\": True}]\nprint(active_names(people))"
+  ],
+  "javascript": [
+    "function groupByLength(words) {\n  const groups = new Map();\n  for (const word of words) {\n    const size = word.length;\n    const items = groups.get(size) ?? [];\n    groups.set(size, [...items, word]);\n  }\n  return groups;\n}",
+    "async function loadItems(url) {\n  const response = await fetch(url);\n  if (!response.ok) {\n    throw new Error(\"Request failed\");\n  }\n  const items = await response.json();\n  return items.filter((item) => item.active);\n}"
+  ],
+  "typescript": [
+    "type User = { name: string; active: boolean };\n\nfunction activeNames(users: User[]): string[] {\n  return users\n    .filter((user) => user.active)\n    .map((user) => user.name);\n}",
+    "interface Point {\n  x: number;\n  y: number;\n}\n\nfunction distance(point: Point): number {\n  return Math.sqrt(point.x ** 2 + point.y ** 2);\n}"
+  ],
+  "html": [
+    "<form class=\"search-form\" action=\"/search\">\n  <label for=\"query\">Search</label>\n  <input id=\"query\" name=\"q\" type=\"search\">\n  <button type=\"submit\">Find</button>\n</form>",
+    "<article class=\"card\">\n  <h2>Latest notes</h2>\n  <ul>\n    <li>Review the schedule</li>\n    <li>Update the project</li>\n  </ul>\n</article>"
+  ],
+  "css": [
+    ".card {\n  display: grid;\n  gap: 1rem;\n  padding: 1.5rem;\n  border: 1px solid #333;\n}\n\n@media (max-width: 600px) {\n  .card { padding: 1rem; }\n}",
+    ".navigation {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n}\n\n.navigation a:focus-visible {\n  outline: 2px solid currentColor;\n}"
+  ],
+  "sql": [
+    "SELECT department, COUNT(*) AS total\nFROM employees\nWHERE active = TRUE\nGROUP BY department\nORDER BY total DESC;",
+    "SELECT orders.id, customers.name, orders.total\nFROM orders\nJOIN customers ON customers.id = orders.customer_id\nWHERE orders.total > 100\nORDER BY orders.created_at DESC;"
+  ],
+  "java": [
+    "import java.util.List;\n\npublic class Average {\n    public static double calculate(List<Integer> values) {\n        return values.stream()\n            .mapToInt(Integer::intValue)\n            .average()\n            .orElse(0);\n    }\n}",
+    "public class Counter {\n    private int value = 0;\n\n    public void increment() {\n        value++;\n    }\n\n    public int getValue() {\n        return value;\n    }\n}"
+  ],
+  "cpp": [
+    "#include <iostream>\n#include <vector>\n\nint sum(const std::vector<int>& values) {\n    int total = 0;\n    for (int value : values) {\n        total += value;\n    }\n    return total;\n}",
+    "#include <algorithm>\n#include <string>\n#include <vector>\n\nvoid sort_names(std::vector<std::string>& names) {\n    std::sort(names.begin(), names.end());\n}"
+  ],
+  "go": [
+    "package main\n\nimport \"fmt\"\n\nfunc sum(values []int) int {\n    total := 0\n    for _, value := range values {\n        total += value\n    }\n    return total\n}\n\nfunc main() {\n    fmt.Println(sum([]int{2, 4, 6}))\n}",
+    "package main\n\nimport \"strings\"\n\nfunc cleanNames(names []string) []string {\n    result := make([]string, 0, len(names))\n    for _, name := range names {\n        result = append(result, strings.TrimSpace(name))\n    }\n    return result\n}"
+  ],
+  "rust": [
+    "fn sum(values: &[i32]) -> i32 {\n    values.iter().copied().sum()\n}\n\nfn main() {\n    let values = [2, 4, 6];\n    println!(\"{}\", sum(&values));\n}",
+    "fn active_names(users: &[(&str, bool)]) -> Vec<&str> {\n    users.iter()\n        .filter(|(_, active)| *active)\n        .map(|(name, _)| *name)\n        .collect()\n}"
+  ]
+};
+const CODE_NAMES = { python:'Python', javascript:'JavaScript', typescript:'TypeScript', html:'HTML', css:'CSS', sql:'SQL', java:'Java', cpp:'C++', go:'Go', rust:'Rust' };
+const CUSTOM_LIMIT = 6000;
+const segmenter = typeof Intl.Segmenter === 'function' ? new Intl.Segmenter(undefined, { granularity:'grapheme' }) : null;
+const splitCharacters = text => segmenter ? Array.from(segmenter.segment(text), item => item.segment) : Array.from(text);
+
 const SETTINGS_KEY = 'cadence.settings.v1';
 const HISTORY_KEY = 'cadence.history.v1';
-const DEFAULT_SETTINGS = { language:'fr', mode:'words', duration:30, punctuation:false, numbers:false, sound:false, theme:'light' };
+const DEFAULT_SETTINGS = { language:'fr', mode:'words', codeLanguage:'python', duration:30, punctuation:false, numbers:false, sound:false, theme:'light' };
 const $ = id => document.getElementById(id);
 let storageAvailable = true;
 function readStored(key, fallback) {
@@ -124,7 +245,8 @@ function writeStored(key, value) {
 const savedSettings = readStored(SETTINGS_KEY, {});
 const settings = Object.assign({}, DEFAULT_SETTINGS, savedSettings && typeof savedSettings === 'object' ? savedSettings : {});
 if (!LANGUAGES[settings.language]) settings.language = 'fr';
-if (!['words','sentences'].includes(settings.mode)) settings.mode = 'words';
+if (!['words','sentences','code','custom'].includes(settings.mode)) settings.mode = 'words';
+if (!CODE_SAMPLES[settings.codeLanguage]) settings.codeLanguage = 'python';
 if (![15,30,60,120].includes(settings.duration)) settings.duration = 30;
 if (!['light','dark'].includes(settings.theme)) settings.theme = 'light';
 settings.punctuation = settings.punctuation === true;
@@ -137,6 +259,8 @@ let timerId = null;
 let characterNodes = [];
 let lastResult = null;
 let audioContext = null;
+let customText = '';
+let previousCode = '';
 
 const t = key => LANGUAGES[settings.language].ui[key] || LANGUAGES.fr.ui[key] || key;
 function persistSettings() { writeStored(SETTINGS_KEY, settings); }
@@ -146,6 +270,14 @@ function formatClock(seconds) {
 }
 function randomItem(items) { return items[Math.floor(Math.random() * items.length)]; }
 function buildPassage() {
+  if (settings.mode === 'custom') return customText;
+  if (settings.mode === 'code') {
+    const samples = CODE_SAMPLES[settings.codeLanguage];
+    let sample = randomItem(samples);
+    while (samples.length > 1 && sample === previousCode) sample = randomItem(samples);
+    previousCode = sample;
+    return sample;
+  }
   const content = LANGUAGES[settings.language];
   let text = '';
   if (settings.mode === 'sentences') {
@@ -191,7 +323,13 @@ function renderStatic() {
   document.querySelectorAll('[data-i18n-aria]').forEach(node => { node.setAttribute('aria-label', t(node.dataset.i18nAria)); });
   $('language').value = settings.language;
   $('language').setAttribute('aria-label', t('languageLabel'));
-  $('typingLanguage').textContent = language.label;
+  $('typingLanguage').textContent = settings.mode === 'code' ? CODE_NAMES[settings.codeLanguage] : settings.mode === 'custom' ? t('custom') : language.label;
+  $('codeControls').hidden = settings.mode !== 'code';
+  $('customControls').hidden = settings.mode !== 'custom';
+  $('codeLanguage').value = settings.codeLanguage;
+  $('typingCard').classList.toggle('is-code', settings.mode === 'code' || settings.mode === 'custom');
+  $('punctuationOption').hidden = settings.mode === 'code' || settings.mode === 'custom';
+  $('numbersOption').hidden = settings.mode === 'code' || settings.mode === 'custom';
   $('themeLabel').textContent = t(settings.theme === 'light' ? 'dark' : 'light');
   $('themeToggle').setAttribute('aria-pressed', String(settings.theme === 'dark'));
   document.querySelector('.clock').setAttribute('aria-label', t('remaining'));
@@ -209,9 +347,9 @@ function updateStatus() {
   $('testStatus').textContent = t(session.status === 'running' ? 'running' : session.status === 'finished' ? 'finished' : 'ready');
   $('typingHint').textContent = t(session.status === 'running' ? 'runningHint' : 'typingHint');
 }
-function createCharacterNodes(text) {
+function createCharacterNodes(characters) {
   const fragment = document.createDocumentFragment();
-  characterNodes = Array.from(text, char => {
+  characterNodes = characters.map(char => {
     const span = document.createElement('span');
     span.className = 'char';
     span.textContent = char;
@@ -220,27 +358,29 @@ function createCharacterNodes(text) {
   });
   $('passage').replaceChildren(fragment);
   if (characterNodes[0]) characterNodes[0].classList.add('current');
-  $('accessiblePassage').textContent = text;
+  $('accessiblePassage').textContent = session.passage;
 }
 function resetTest(shouldFocus = false) {
   clearInterval(timerId); timerId = null;
   const passage = buildPassage();
-  session = { status:'waiting', passage, typed:'', attempts:0, errors:0, startAt:0, endAt:0 };
+  const passageChars = splitCharacters(passage);
+  session = { status:'waiting', passage, passageChars, typed:'', typedChars:[], attempts:0, errors:0, startAt:0, endAt:0 };
   lastResult = null;
   $('typingInput').value = '';
-  $('typingInput').disabled = false;
+  $('typingInput').disabled = passageChars.length === 0;
+  $('emptyPassage').hidden = passageChars.length > 0;
   $('typingView').hidden = false;
   $('resultView').hidden = true;
   $('textViewport').scrollTop = 0;
   $('shareMessage').textContent = '';
-  createCharacterNodes(passage);
+  createCharacterNodes(passageChars);
   updateStatus();
   $('timer').textContent = formatClock(settings.duration);
   $('timeProgress').style.transform = 'scaleX(1)';
   $('wpm').textContent = '0';
   $('accuracy').textContent = '100';
   $('errors').textContent = '0';
-  if (shouldFocus) $('typingInput').focus({ preventScroll:true });
+  if (shouldFocus && passageChars.length) $('typingInput').focus({ preventScroll:true });
 }
 function countCorrect(typed, expected) {
   let count = 0;
@@ -249,7 +389,7 @@ function countCorrect(typed, expected) {
 }
 function currentValues(now = Date.now()) {
   const elapsed = session.startAt ? Math.min(settings.duration, Math.max((now - session.startAt) / 1000, 1)) : 0;
-  const correct = countCorrect(session.typed, session.passage);
+  const correct = countCorrect(session.typedChars, session.passageChars);
   return {
     wpm: elapsed ? Math.round((correct / 5) * (60 / elapsed)) : 0,
     accuracy: session.attempts ? Math.max(0, Math.round(((session.attempts - session.errors) / session.attempts) * 100)) : 100,
@@ -279,14 +419,14 @@ function startTest(now) {
   }, 100);
 }
 function paintChanges(previous) {
-  const current = session.typed;
+  const current = session.typedChars;
   let start = 0;
   while (start < previous.length && start < current.length && previous[start] === current[start]) start++;
   if (characterNodes[previous.length]) characterNodes[previous.length].classList.remove('current');
   for (let i = start; i < Math.max(previous.length, current.length) && i < characterNodes.length; i++) {
     const node = characterNodes[i];
     node.classList.remove('correct', 'incorrect');
-    if (i < current.length) node.classList.add(current[i] === session.passage[i] ? 'correct' : 'incorrect');
+    if (i < current.length) node.classList.add(current[i] === session.passageChars[i] ? 'correct' : 'incorrect');
   }
   const cursor = characterNodes[current.length];
   if (cursor) {
@@ -323,28 +463,30 @@ function onTyping(event) {
     finishTest(session.endAt);
     return;
   }
-  const previous = session.typed;
-  const next = $('typingInput').value.slice(0, session.passage.length);
+  const previous = session.typedChars;
+  const nextChars = splitCharacters($('typingInput').value).slice(0, session.passageChars.length);
+  const next = nextChars.join('');
   if ($('typingInput').value !== next) $('typingInput').value = next;
-  if (session.status === 'waiting' && next.length) startTest(now);
+  if (session.status === 'waiting' && nextChars.length) startTest(now);
   let prefix = 0;
-  while (prefix < previous.length && prefix < next.length && previous[prefix] === next[prefix]) prefix++;
+  while (prefix < previous.length && prefix < nextChars.length && previous[prefix] === nextChars[prefix]) prefix++;
   let suffix = 0;
-  while (suffix < previous.length - prefix && suffix < next.length - prefix && previous[previous.length - 1 - suffix] === next[next.length - 1 - suffix]) suffix++;
-  const inserted = next.slice(prefix, next.length - suffix);
+  while (suffix < previous.length - prefix && suffix < nextChars.length - prefix && previous[previous.length - 1 - suffix] === nextChars[nextChars.length - 1 - suffix]) suffix++;
+  const inserted = nextChars.slice(prefix, nextChars.length - suffix);
   let allCorrect = true;
   for (let i = 0; i < inserted.length; i++) {
     session.attempts++;
-    if (inserted[i] !== session.passage[prefix + i]) { session.errors++; allCorrect = false; }
+    if (inserted[i] !== session.passageChars[prefix + i]) { session.errors++; allCorrect = false; }
   }
   if (inserted.length) playKeySound(allCorrect);
   session.typed = next;
+  session.typedChars = nextChars;
   paintChanges(previous);
   refreshLive(now);
   if (!event.isComposing) {
-    try { $('typingInput').setSelectionRange(next.length, next.length); } catch {  }
+    try { $('typingInput').setSelectionRange(next.length, next.length); } catch {}
   }
-  if (next.length >= session.passage.length && session.status === 'running') finishTest(now);
+  if (nextChars.length >= session.passageChars.length && session.status === 'running') finishTest(now);
 }
 function finishTest(now) {
   if (!session || session.status !== 'running') return;
@@ -434,14 +576,56 @@ async function shareResult() {
   }
 }
 
+function insertIndentation(event) {
+  if (event.key !== 'Tab' || event.shiftKey || event.ctrlKey || event.altKey || event.metaKey || !session || session.status === 'finished') return;
+  if (settings.mode !== 'code' && settings.mode !== 'custom') return;
+  const input = $('typingInput');
+  if (input.selectionStart !== session.typed.length || input.selectionEnd !== input.selectionStart) return;
+  const line = session.typed.slice(session.typed.lastIndexOf('\n') + 1);
+  if (!/^[ \t]*$/.test(line)) return;
+  const index = session.typedChars.length;
+  const expected = session.passageChars[index];
+  let insertion = '';
+  if (expected === '\t') insertion = '\t';
+  else if (expected === ' ') {
+    let column = 0;
+    for (const char of line) column += char === '\t' ? 4 - column % 4 : 1;
+    const limit = 4 - column % 4;
+    let count = 0;
+    while (count < limit && session.passageChars[index + count] === ' ') count++;
+    insertion = ' '.repeat(count);
+  }
+  if (!insertion) return;
+  event.preventDefault();
+  input.setRangeText(insertion, input.selectionStart, input.selectionEnd, 'end');
+  input.dispatchEvent(new Event('input', { bubbles:true }));
+}
+function loadCustomText() {
+  const raw = $('customSource').value.replace(/\r\n?/g, '\n');
+  if (!raw.trim()) { $('customMessage').textContent = t('customEmpty'); return; }
+  if (raw.length > CUSTOM_LIMIT * 8 || splitCharacters(raw).length > CUSTOM_LIMIT) {
+    $('customMessage').textContent = t('customTooLong');
+    return;
+  }
+  if (!canChangeTest()) return;
+  customText = raw;
+  $('customMessage').textContent = t('customLoaded');
+  resetTest(true);
+}
+
 document.querySelectorAll('[data-mode]').forEach(button => button.addEventListener('click', () => changeSetting('mode', button.dataset.mode)));
 document.querySelectorAll('[data-duration]').forEach(button => button.addEventListener('click', () => changeSetting('duration', Number(button.dataset.duration))));
 $('language').addEventListener('change', event => changeSetting('language', event.target.value));
+$('codeLanguage').addEventListener('change', event => changeSetting('codeLanguage', event.target.value));
+$('nextSnippet').addEventListener('click', () => { if (canChangeTest()) resetTest(true); });
+$('useCustom').addEventListener('click', loadCustomText);
+$('customSource').addEventListener('input', () => { $('customMessage').textContent = ''; });
 $('punctuation').addEventListener('change', event => changeSetting('punctuation', event.target.checked));
 $('numbers').addEventListener('change', event => changeSetting('numbers', event.target.checked));
 $('sound').addEventListener('change', event => { settings.sound = event.target.checked; persistSettings(); });
 $('themeToggle').addEventListener('click', () => { settings.theme = settings.theme === 'light' ? 'dark' : 'light'; persistSettings(); renderStatic(); });
 $('typingInput').addEventListener('input', onTyping);
+$('typingInput').addEventListener('keydown', insertIndentation);
 $('restart').addEventListener('click', () => resetTest(true));
 $('playAgain').addEventListener('click', () => resetTest(true));
 $('shareResult').addEventListener('click', shareResult);
@@ -450,7 +634,7 @@ $('clearHistory').addEventListener('click', () => {
   history = []; writeStored(HISTORY_KEY, history); renderHistory();
 });
 document.addEventListener('keydown', event => {
-  if (event.key === 'Escape' && !event.isComposing && !$('installDialog').open) { event.preventDefault(); resetTest(true); }
+  if (event.key === 'Escape' && !event.isComposing && !$('installDialog').open && event.target !== $('customSource')) { event.preventDefault(); resetTest(true); }
 });
 renderStatic();
 resetTest();
