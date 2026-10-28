@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="fr" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#dce7df">
+  <meta name="description" content="Cadence, un espace de frappe pour progresser à votre rythme.">
+  <title>Cadence — votre espace de frappe</title>
+  <link rel="icon" href="data:,">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@400;500;600&family=Public+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#test" data-i18n="skip">Aller au test</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="wordmark" href="./" translate="no" aria-label="Cadence — accueil">cadence<span>.</span></a>
+      <span class="header-description" data-i18n="headerDescriptor">Un espace pour mieux taper</span>
+      <nav class="header-actions" aria-label="Préférences" data-i18n-aria="preferences">
+        <a class="activity-link" href="#activity" data-i18n="activityLink">Votre activité</a>
+        <label class="language-control">
+          <span class="sr-only" data-i18n="languageLabel">Langue du test et de l’interface</span>
+          <select id="language" name="language" aria-label="Langue du test et de l’interface">
+            <option value="fr">Français</option>
+            <option value="en">English</option>
+            <option value="es">Español</option>
+            <option value="pt">Português</option>
+            <option value="de">Deutsch</option>
+          </select>
+          <svg viewBox="0 0 12 8" width="10" height="7" aria-hidden="true"><path d="m1 1 5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+        </label>
+        <button class="theme-button" id="themeToggle" type="button" aria-pressed="false">
+          <svg viewBox="0 0 18 18" width="17" height="17" aria-hidden="true"><circle cx="9" cy="9" r="6.3" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M9 2.7a6.3 6.3 0 0 0 0 12.6Z" fill="currentColor"/></svg>
+          <span id="themeLabel">Sombre</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page" id="main">
+    <section class="intro" aria-labelledby="page-title">
+      <div class="intro-copy">
+        <div class="intro-kicker"><span aria-hidden="true"></span><span data-i18n="introKicker">Votre moment à vous</span></div>
+        <h1 id="page-title" data-i18n="headline">Trouvez votre rythme.</h1>
+        <p data-i18n="introText">Quelques mots, un peu de temps. Faites le point sur votre frappe et progressez à votre rythme.</p>
+      </div>
+      <div class="intro-note" aria-hidden="true">
+        <span class="note-rule"></span>
+        <span data-i18n="introAside">Moins de précipitation.<br>Plus de précision.</span>
+      </div>
+    </section>
+
+    <div class="workspace" id="workspace">
+      <section class="test-panel" id="test" aria-labelledby="test-heading">
+        <div class="panel-heading">
+          <div class="panel-heading-title">
+            <span class="status-dot" aria-hidden="true"></span>
+            <h2 id="test-heading" data-i18n="testTitle">Test de frappe</h2>
+          </div>
+          <span class="test-status" id="testStatus" role="status">Prêt quand vous l’êtes</span>
+        </div>
+
+        <div class="configuration">
+          <div class="config-group">
+            <span class="config-label" id="formatLabel" data-i18n="format">Format</span>
+            <div class="segmented" role="group" aria-labelledby="formatLabel" id="modeGroup">
+              <button type="button" class="choice" data-mode="words" aria-pressed="true" data-i18n="words">Mots</button>
+              <button type="button" class="choice" data-mode="sentences" aria-pressed="false" data-i18n="sentences">Phrases</button>
+            </div>
+          </div>
+          <div class="config-divider" aria-hidden="true"></div>
+          <div class="config-group duration-group">
+            <span class="config-label" id="durationLabel" data-i18n="duration">Durée</span>
+            <div class="segmented duration-choices" role="group" aria-labelledby="durationLabel" id="durationGroup">
+              <button type="button" class="choice" data-duration="15" aria-pressed="false">15 s</button>
+              <button type="button" class="choice" data-duration="30" aria-pressed="true">30 s</button>
+              <button type="button" class="choice" data-duration="60" aria-pressed="false">60 s</button>
+              <button type="button" class="choice" data-duration="120" aria-pressed="false">120 s</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="typing-card" id="typingCard">
+          <div id="typingView">
+            <div class="typing-card-top">
+              <div>
+                <span class="typing-eyebrow" data-i18n="yourText">Votre texte</span>
+                <span class="typing-language" id="typingLanguage">Français</span>
+              </div>
+              <div class="clock" aria-label="Temps restant">
+                <span class="clock-label" data-i18n="remaining">Temps restant</span>
+                <strong id="timer" aria-live="off">00:30</strong>
+              </div>
+            </div>
+            <div class="input-wrap" id="inputWrap">
+              <div id="textViewport" class="text-viewport" aria-hidden="true"><div id="passage"></div></div>
+              <label class="sr-only" for="typingInput" data-i18n="inputLabel">Tapez le texte affiché ici</label>
+              <p class="sr-only" id="accessiblePassage"></p>
+              <textarea id="typingInput" name="typing-test" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" aria-describedby="typingHint accessiblePassage"></textarea>
+            </div>
+            <div class="typing-card-bottom">
+              <p id="typingHint" data-i18n="typingHint">Commencez à taper pour lancer le chrono.</p>
+              <button class="restart-button" id="restart" type="button">
+                <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M13.2 7.5A5.4 5.4 0 1 0 11.6 12M13.2 3.2v4.3H8.9" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span data-i18n="restart">Recommencer</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="result-view" id="resultView" hidden>
+            <div class="result-heading-row">
+              <div><span class="result-overline" data-i18n="resultOverline">Test terminé</span><h3 id="resultHeading" tabindex="-1" data-i18n="resultHeading">Bien joué.</h3></div>
+              <span class="result-time" id="resultTime">30 s</span>
+            </div>
+            <p class="result-description" id="resultDescription">Voici votre résultat.</p>
+            <div class="result-metrics">
+              <div><strong id="resultWpm">0</strong><span data-i18n="wpmLong">mots / min</span></div>
+              <div><strong id="resultAccuracy">100<span>%</span></strong><span data-i18n="accuracy">Précision</span></div>
+              <div><strong id="resultErrors">0</strong><span data-i18n="errors">Erreurs</span></div>
+            </div>
+            <div class="result-actions">
+              <button type="button" class="primary-button" id="playAgain" data-i18n="playAgain">Faire un autre test</button>
+              <button type="button" class="secondary-button" id="shareResult" data-i18n="share">Partager le résultat</button>
+              <span class="share-message" id="shareMessage" role="status"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="live-stats" aria-label="Statistiques en direct" data-i18n-aria="liveStats">
+          <div class="live-stat"><span data-i18n="speed">Vitesse</span><div><strong id="wpm">0</strong><small data-i18n="wpmShort">mots/min</small></div></div>
+          <div class="live-stat"><span data-i18n="accuracy">Précision</span><div><strong id="accuracy">100</strong><small>%</small></div></div>
+          <div class="live-stat"><span data-i18n="errors">Erreurs</span><div><strong id="errors">0</strong><small data-i18n="keystrokes">frappes</small></div></div>
+        </div>
+
+        <div class="options-row">
+          <span class="options-title" data-i18n="options">Options</span>
+          <div class="option-controls">
+            <label class="switch-label"><input type="checkbox" id="punctuation"><span class="switch" aria-hidden="true"></span><span data-i18n="punctuation">Ponctuation</span></label>
+            <label class="switch-label"><input type="checkbox" id="numbers"><span class="switch" aria-hidden="true"></span><span data-i18n="numbers">Chiffres</span></label>
+            <label class="switch-label"><input type="checkbox" id="sound"><span class="switch" aria-hidden="true"></span><span data-i18n="sound">Son</span></label>
+          </div>
+        </div>
+        <details class="score-explainer"><summary data-i18n="howScores">Comment sont calculés les scores ?</summary><p data-i18n="scoreExplanation">La vitesse compte 5 caractères corrects par mot. La précision tient compte de toutes vos frappes, même celles que vous corrigez.</p></details>
+      </section>
+
+      <aside class="activity-panel" id="activity" aria-labelledby="activity-heading">
+        <div class="activity-heading">
+          <h2 id="activity-heading" data-i18n="activity">Votre activité</h2>
+          <span class="activity-dot" aria-hidden="true"></span>
+        </div>
+        <div class="best-area">
+          <span class="activity-label" data-i18n="personalBest">Record personnel</span>
+          <div class="best-number"><strong id="bestScore">—</strong><span data-i18n="wpmShort">mots/min</span></div>
+          <p id="bestCaption">Votre premier score vous attend.</p>
+        </div>
+        <div class="activity-totals">
+          <div><span data-i18n="completedTests">Tests terminés</span><strong id="totalTests">0</strong></div>
+          <div><span data-i18n="averageSpeed">Vitesse moyenne</span><strong id="averageSpeed">—</strong></div>
+        </div>
+        <div class="progress-section">
+          <div class="aside-section-heading"><h3 data-i18n="progress">Votre progression</h3><span data-i18n="lastEight">8 derniers tests</span></div>
+          <div class="chart" id="chart" aria-label="Progression des huit derniers tests"></div>
+          <p class="chart-empty" id="chartEmpty" data-i18n="chartEmpty">Votre progression apparaîtra ici après un premier test.</p>
+        </div>
+        <div class="history-section">
+          <div class="aside-section-heading"><h3 data-i18n="recentTests">Tests récents</h3><button type="button" id="clearHistory" hidden data-i18n="clearHistory">Effacer</button></div>
+          <ul class="history-list" id="historyList"></ul>
+          <p class="history-empty" id="historyEmpty" data-i18n="historyEmpty">Pas encore de test terminé.</p>
+        </div>
+        <p class="privacy-note"><span class="privacy-dot" aria-hidden="true"></span><span data-i18n="privacy">Vos résultats restent sur cet appareil.</span></p>
+      </aside>
+    </div>
+
+    <footer class="page-footer">
+      <p data-i18n="footer">Une petite pause pour votre clavier.</p>
+      <p><kbd>Échap</kbd> <span data-i18n="keyboardHint">pour recommencer</span></p>
+    </footer>
+  </main>
+</body>
+</html>
