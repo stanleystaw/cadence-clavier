@@ -512,8 +512,8 @@ function finishTest(now) {
 function renderHistory() {
   const locale = LANGUAGES[settings.language].locale;
   const best = history.length ? history.reduce((a, b) => b.wpm > a.wpm ? b : a) : null;
-  $('bestScore').textContent = best ? String(best.wpm) : '—';
-  $('bestNumber').classList.toggle('is-empty', !best);
+  $('bestScore').textContent = best ? String(best.wpm) : '';
+  $('bestNumber').hidden = !best;
   $('bestUnit').hidden = !best;
   $('totalTests').textContent = String(history.length);
   $('averageSpeed').textContent = history.length ? String(Math.round(history.reduce((sum, item) => sum + item.wpm, 0) / history.length)) : '—';
