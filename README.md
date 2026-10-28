@@ -1,30 +1,35 @@
 # Cadence
 
-[Tester Cadence en ligne](https://cadence-clavier.vercel.app/)
+[Ouvrir Cadence](https://cadence-clavier.vercel.app/)
 
-Un petit espace de frappe, sans compte ni serveur. Interface et exercices en français, anglais, espagnol, portugais et allemand.
+Test de frappe en français, anglais, espagnol, portugais et allemand. Aucun compte ni serveur de scores.
 
 ## Utilisation
-
-Ouvrir `index.html` dans un navigateur récent, ou lancer un serveur local depuis ce dossier :
 
 ```sh
 python3 -m http.server 4173
 ```
 
-Le site est statique : aucun paquet, clé ou variable d’environnement n’est nécessaire. Il peut être déployé directement sur Vercel avec le réglage « Other » / site statique. Les polices Barlow, Barlow Condensed et IBM Plex Mono sont fournies par Google Fonts ; des polices système sont utilisées si elles ne sont pas accessibles.
+Ouvrir ensuite `http://localhost:4173`. Le site est statique et ne nécessite aucune dépendance. Le test fonctionne aussi en ouvrant `index.html` directement, mais l’installation et le mode hors ligne nécessitent HTTPS ou localhost.
+
+## Installation et mode hors ligne
+
+Sur Chrome ou Edge, utiliser le bouton « Installer l’application » ou l’option d’installation du navigateur. Sur iPhone et iPad, ouvrir Cadence dans Safari, toucher Partager puis « Sur l’écran d’accueil ». Les autres navigateurs proposent l’installation selon leur compatibilité.
+
+Après une première visite en ligne et la mise en cache de l’application, les tests restent utilisables hors connexion. Les préférences et résultats sont conservés localement dans chaque navigateur. Effacer les données du site les supprime.
 
 ## Fonctionnalités
 
 - Tests de 15, 30, 60 ou 120 secondes, démarrant à la première frappe.
-- Exercices de mots ou de phrases, avec ponctuation et chiffres en option.
-- Vitesse, précision, erreurs et barre de temps en direct ; les corrections restent prises en compte dans la précision.
-- Résultat partageable, historique local, record, moyenne et graphique des derniers tests.
-- Thème clair ou sombre, retour sonore facultatif et raccourci Échap pour recommencer.
-- Préférences et résultats enregistrés uniquement dans le stockage local du navigateur. Les effacer, changer de navigateur ou d’appareil les supprime ou les rend indisponibles ailleurs.
+- Mots ou phrases, ponctuation et chiffres en option.
+- Vitesse, précision, erreurs et barre de temps en direct.
+- Résultats partageables, historique, record, moyenne et graphique.
+- Thème clair ou sombre, son facultatif et raccourci Échap pour recommencer.
 
-La vitesse utilise la convention de 5 caractères corrects pour un mot, divisés par le temps écoulé. La précision compare les frappes correctes au total des frappes ajoutées, y compris les frappes corrigées. Le chronomètre suit le temps réel, même si l’onglet est mis en arrière-plan.
+La vitesse compte cinq caractères corrects par mot, divisés par le temps écoulé. La précision tient compte de toutes les frappes ajoutées, y compris les erreurs corrigées. Le chronomètre suit le temps réel, même si l’onglet est en arrière-plan.
 
-## Confidentialité
+## Déploiement
 
-Il n’y a pas de compte, d’outil d’analyse ni de transmission des scores à un serveur. La feuille de style Google Fonts peut toutefois entraîner une requête vers Google lorsque la police est chargée.
+Vercel publie les fichiers statiques définis dans `vercel.json`. Le service worker `sw.js` met en cache les fichiers nécessaires au fonctionnement hors ligne. Après modification des fichiers ou de la liste précachée, changer le numéro de version de `CACHE_NAME` pour préparer le nouveau cache sur les appareils déjà installés.
+
+Les polices Google Fonts Barlow, Barlow Condensed et IBM Plex Mono sont incluses localement. Leurs licences sont disponibles dans le dossier `fonts`.

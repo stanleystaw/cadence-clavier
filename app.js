@@ -1,4 +1,3 @@
-/* Cadence: a private-by-default typing exercise. No backend or analytics. */
 'use strict';
 
 const LANGUAGES = {
@@ -6,100 +5,108 @@ const LANGUAGES = {
     label: 'Français', locale: 'fr-FR',
     words: `bonjour monde rythme matin encore ensemble lumière chemin moment sourire facile demain écrire fenêtre clavier calme penser juste couleur détail parole voyager musique papier fenêtre vivre toujours assez étoile lettre livre fleur histoire nuage mémoire grande famille souffle écouter heureux rivière soleil minute beaucoup bientôt douceur calme forêt temps parfois petite place autour confiance lenteur découvrir mouvement jardin rapide aller penser simple chaque monde penser attention tendre comprendre langue ensemble trouver regarder nuit silence marche compter grand paysage envie maison saison apprendre chaque plaisir naturel avancer précieux hier chemin coeur accueil attendre demain passage long histoire accord enfant quelque vraiment dehors jamais dedans aimer réussir ligne minute atelier chemin découvrir heure feuille matin nature amis continuer aujourd'hui écoute devenir tranquille espace raison juste petite liberté valeur idée grand chance sourire horizon rythme plaisir`.split(/\s+/),
     sentences: [
-      `Le matin, la ville se réveille doucement et les premières lumières dansent sur les fenêtres.`,
-      `Prendre son temps ne veut pas dire rester immobile, mais avancer avec attention.`,
-      `Une bonne idée commence parfois par une simple question posée au bon moment.`,
-      `Les petites habitudes donnent de grands résultats quand on les répète chaque jour.`,
-      `Au bout du chemin, le jardin sentait la pluie et les feuilles fraîchement tombées.`,
-      `Écrire avec précision devient plus facile lorsque les mains trouvent leur propre rythme.`,
-      `Les mots ont le pouvoir de rapprocher les personnes, même à travers les kilomètres.`,
-      `La curiosité ouvre des portes que la vitesse seule ne permet pas de voir.`,
-      `Un café chaud, une page blanche et le calme peuvent suffire pour bien commencer.`,
-      `Chaque erreur corrigée est une occasion de comprendre et de recommencer autrement.`
+      `À huit heures, le marché ouvre ses portes et les premiers clients choisissent leurs fruits.`,
+      `Dans la bibliothèque, une table près de la fenêtre reste libre pour les lecteurs.`,
+      `Le train traverse la campagne avant de rejoindre la gare au bord du fleuve.`,
+      `La recette demande des tomates, un oignon, du riz et quelques feuilles de basilic.`,
+      `Après la pluie, les rues reflètent les vitrines et les lumières du quartier.`,
+      `Pour préparer le voyage, consultez les horaires et gardez une copie des billets.`,
+      `Un carnet posé sur le bureau contient les notes de la réunion de lundi.`,
+      `Au bord de la mer, les pêcheurs réparent leurs filets avant le départ.`,
+      `Le musée présente des photographies anciennes et des cartes de la région.`,
+      `Chaque samedi, les voisins se retrouvent au jardin pour échanger des graines et des plantes.`
     ],
     ui: {
-      skip:'Aller au test', headerDescriptor:'Un espace pour mieux taper', preferences:'Préférences', activityLink:'Votre activité', languageLabel:'Langue du test et de l’interface',
-      introKicker:'Votre moment à vous', headline:'Trouvez votre rythme.', introText:'Quelques mots, un peu de temps. Faites le point sur votre frappe et progressez à votre rythme.', introAside:'Moins de précipitation.\nPlus de précision.',
-      testTitle:'Test de frappe', ready:'Prêt quand vous l’êtes', running:'Test en cours', finished:'Test terminé', format:'Format', words:'Mots', sentences:'Phrases', duration:'Durée', yourText:'Votre texte', remaining:'Temps restant', inputLabel:'Tapez le texte affiché ici', typingHint:'Commencez à taper pour lancer le chrono.', runningHint:'Continuez à taper, vous pouvez corriger vos erreurs.', restart:'Recommencer', resultOverline:'Test terminé', resultHeading:'Bien joué.', resultDescription:'Voici votre résultat. Chaque test est un nouveau point de départ.', wpmLong:'mots / min', speed:'Vitesse', wpmShort:'mots/min', accuracy:'Précision', errors:'Erreurs', keystrokes:'frappes', playAgain:'Faire un autre test', share:'Partager le résultat', liveStats:'Statistiques en direct', options:'Options', punctuation:'Ponctuation', numbers:'Chiffres', sound:'Son', howScores:'Comment sont calculés les scores ?', scoreExplanation:'La vitesse compte 5 caractères corrects par mot. La précision tient compte de toutes vos frappes, même celles que vous corrigez.', activity:'Votre activité', personalBest:'Record personnel', firstScore:'Votre premier score vous attend.', bestOn:'Record établi le', completedTests:'Tests terminés', averageSpeed:'Vitesse moyenne', progress:'Votre progression', lastEight:'8 derniers tests', chartEmpty:'Votre progression apparaîtra ici après un premier test.', recentTests:'Tests récents', clearHistory:'Effacer', historyEmpty:'Pas encore de test terminé.', privacy:'Vos résultats restent sur cet appareil.', footer:'Une petite pause pour votre clavier.', keyboardHint:'pour recommencer', escape:'Échap', dark:'Sombre', light:'Clair', confirmChange:'Le test en cours sera interrompu. Voulez-vous continuer ?', confirmClear:'Effacer tous les résultats enregistrés sur cet appareil ?', shared:'Résultat partagé.', copied:'Résultat copié.', copyFailed:'Copie impossible. Vérifiez les autorisations de votre navigateur.', shareText:'J’ai atteint {wpm} mots/min avec {accuracy} % de précision sur Cadence. À vous de jouer :', chartLabel:'Vitesse des derniers tests', saved:'Enregistré sur cet appareil', storageWarning:'La sauvegarde locale est indisponible dans ce navigateur.'
+      skip:'Aller au test', headerDescriptor:"Entraînement au clavier", preferences:'Préférences', activityLink:'Votre activité', languageLabel:'Langue du test et de l’interface',
+      headline:"Test de frappe.", introText:"Mesurez votre vitesse et votre précision au clavier.", testTitle:"Entraînement", ready:"Prêt à commencer", running:'Test en cours', finished:'Test terminé', format:'Format', words:'Mots', sentences:'Phrases', duration:'Durée', yourText:'Votre texte', remaining:'Temps restant', inputLabel:'Tapez le texte affiché ici', typingHint:'Commencez à taper pour lancer le chrono.', runningHint:'Continuez à taper, vous pouvez corriger vos erreurs.', restart:'Recommencer', resultOverline:'Test terminé', resultHeading:"Résultats", wpmLong:'mots / min', speed:'Vitesse', wpmShort:'mots/min', accuracy:'Précision', errors:'Erreurs', keystrokes:'frappes', playAgain:'Faire un autre test', share:'Partager le résultat', liveStats:'Statistiques en direct', options:'Options', punctuation:'Ponctuation', numbers:'Chiffres', sound:'Son', howScores:'Comment sont calculés les scores ?', scoreExplanation:'La vitesse compte 5 caractères corrects par mot. La précision tient compte de toutes vos frappes, même celles que vous corrigez.', activity:'Votre activité', personalBest:'Record personnel', firstScore:"Aucun résultat enregistré.", bestOn:'Record établi le', completedTests:'Tests terminés', averageSpeed:'Vitesse moyenne', progress:'Votre progression', lastEight:'8 derniers tests', chartEmpty:"Aucun test à afficher.", recentTests:'Tests récents', clearHistory:'Effacer', historyEmpty:"Aucun test terminé.", privacy:'Vos résultats restent sur cet appareil.', keyboardHint:'pour recommencer', escape:'Échap', dark:'Sombre', light:'Clair', confirmChange:'Le test en cours sera interrompu. Voulez-vous continuer ?', confirmClear:'Effacer tous les résultats enregistrés sur cet appareil ?', shared:'Résultat partagé.', copied:'Résultat copié.', copyFailed:'Copie impossible. Vérifiez les autorisations de votre navigateur.', shareText:"Sur Cadence : {wpm} mots/min, {accuracy} % de précision.", chartLabel:'Vitesse des derniers tests', saved:'Enregistré sur cet appareil', storageWarning:'La sauvegarde locale est indisponible dans ce navigateur.'
     }
   },
   en: {
     label: 'English', locale: 'en-GB',
     words: `morning simple gentle little around world rhythm always wonder window quiet listen language orange people river better garden spring practice answer journey across enough together slowly planet letter writing thoughtful change autumn light careful bring different mountain family discover honest clear time story useful place beautiful book create friendly follow almost smile today paper between learn calm welcome words minute sound nature open evening warm future bright common dream table remember keyboard focus moment choose patience wonderful path soft favourite walk simple way enjoy breathe build small steady question ready number coffee explore home start fresh`.split(/\s+/),
     sentences: [
-      `The morning light moved slowly across the table as the city began to wake.`,
-      `Taking your time does not mean standing still; it means moving with intention.`,
-      `A good idea often begins with a simple question at just the right moment.`,
-      `Small habits can lead to remarkable progress when you return to them each day.`,
-      `At the end of the path, the garden smelled of rain and freshly fallen leaves.`,
-      `Typing accurately becomes easier when your hands find a rhythm of their own.`,
-      `Words have a way of bringing people closer, even across a great distance.`,
-      `Curiosity opens doors that speed alone might never help us notice.`,
-      `A warm cup, a blank page and a little quiet can be a wonderful beginning.`,
-      `Every mistake you correct is a chance to learn and start again.`
+      `At eight, the market opens and the first customers choose fruit for the week.`,
+      `In the library, a table near the window remains free for readers.`,
+      `The train crosses the countryside before reaching the station beside the river.`,
+      `The recipe calls for tomatoes, an onion, rice and a few basil leaves.`,
+      `After the rain, the streets reflect shop windows and the lights of the neighborhood.`,
+      `Before the trip, check the timetable and keep a copy of the tickets.`,
+      `A notebook on the desk contains the notes from the meeting on Monday.`,
+      `By the sea, the fishers repair their nets before leaving the harbor.`,
+      `The museum displays old photographs and maps of the surrounding region.`,
+      `Every Saturday, neighbors meet in the garden to exchange seeds and plants.`
     ],
     ui: {
-      skip:'Skip to the test', headerDescriptor:'A little space to type better', preferences:'Preferences', activityLink:'Your activity', languageLabel:'Test and interface language', introKicker:'A moment for yourself', headline:'Find your rhythm.', introText:'A few words, a little time. See how you type and improve at your own pace.', introAside:'Less rushing.\nMore accuracy.', testTitle:'Typing test', ready:'Ready when you are', running:'Test in progress', finished:'Test complete', format:'Format', words:'Words', sentences:'Sentences', duration:'Duration', yourText:'Your text', remaining:'Time remaining', inputLabel:'Type the displayed text here', typingHint:'Start typing to begin the timer.', runningHint:'Keep typing; you can correct your mistakes.', restart:'Restart', resultOverline:'Test complete', resultHeading:'Nicely done.', resultDescription:'Here is your result. Every test is a fresh starting point.', wpmLong:'words / min', speed:'Speed', wpmShort:'words/min', accuracy:'Accuracy', errors:'Errors', keystrokes:'keystrokes', playAgain:'Take another test', share:'Share result', liveStats:'Live statistics', options:'Options', punctuation:'Punctuation', numbers:'Numbers', sound:'Sound', howScores:'How are scores calculated?', scoreExplanation:'Speed counts 5 correct characters per word. Accuracy includes every keystroke, even the ones you correct.', activity:'Your activity', personalBest:'Personal best', firstScore:'Your first score is waiting.', bestOn:'Record set on', completedTests:'Completed tests', averageSpeed:'Average speed', progress:'Your progress', lastEight:'Last 8 tests', chartEmpty:'Your progress will appear here after your first test.', recentTests:'Recent tests', clearHistory:'Clear', historyEmpty:'No completed tests yet.', privacy:'Your results stay on this device.', footer:'A little break for your keyboard.', keyboardHint:'to restart', escape:'Esc', dark:'Dark', light:'Light', confirmChange:'Your current test will be interrupted. Continue?', confirmClear:'Clear all results saved on this device?', shared:'Result shared.', copied:'Result copied.', copyFailed:'Could not copy. Check your browser permissions.', shareText:'I reached {wpm} words/min with {accuracy}% accuracy on Cadence. Your turn:', chartLabel:'Speed in recent tests', saved:'Saved on this device', storageWarning:'Local storage is unavailable in this browser.'
+      skip:'Skip to the test', headerDescriptor:"Keyboard practice", preferences:'Preferences', activityLink:'Your activity', languageLabel:'Test and interface language', headline:"Typing test.", introText:"Measure your typing speed and accuracy.", testTitle:"Practice", ready:"Ready to start", running:'Test in progress', finished:'Test complete', format:'Format', words:'Words', sentences:'Sentences', duration:'Duration', yourText:'Your text', remaining:'Time remaining', inputLabel:'Type the displayed text here', typingHint:'Start typing to begin the timer.', runningHint:'Keep typing; you can correct your mistakes.', restart:'Restart', resultOverline:'Test complete', resultHeading:"Results", wpmLong:'words / min', speed:'Speed', wpmShort:'words/min', accuracy:'Accuracy', errors:'Errors', keystrokes:'keystrokes', playAgain:'Take another test', share:'Share result', liveStats:'Live statistics', options:'Options', punctuation:'Punctuation', numbers:'Numbers', sound:'Sound', howScores:'How are scores calculated?', scoreExplanation:'Speed counts 5 correct characters per word. Accuracy includes every keystroke, even the ones you correct.', activity:'Your activity', personalBest:'Personal best', firstScore:"No results saved.", bestOn:'Record set on', completedTests:'Completed tests', averageSpeed:'Average speed', progress:'Your progress', lastEight:'Last 8 tests', chartEmpty:"No tests to show.", recentTests:'Recent tests', clearHistory:'Clear', historyEmpty:"No completed tests.", privacy:'Your results stay on this device.', keyboardHint:'to restart', escape:'Esc', dark:'Dark', light:'Light', confirmChange:'Your current test will be interrupted. Continue?', confirmClear:'Clear all results saved on this device?', shared:'Result shared.', copied:'Result copied.', copyFailed:'Could not copy. Check your browser permissions.', shareText:"Cadence: {wpm} words/min, {accuracy}% accuracy.", chartLabel:'Speed in recent tests', saved:'Saved on this device', storageWarning:'Local storage is unavailable in this browser.'
     }
   },
   es: {
     label: 'Español', locale: 'es-ES',
     words: `mañana mundo ritmo camino palabra juntos luz momento sonrisa fácil ventana teclado calma pensar color detalle viajar música papel vivir siempre estrella letra libro flor historia nube memoria familia respirar escuchar feliz río sol minuto pronto ternura bosque tiempo pequeño lugar alrededor confianza descubrir movimiento jardín rápido sencillo cada atención comprender idioma encontrar mirar noche silencio caminar contar paisaje deseo casa estación aprender placer natural avanzar querido ayer corazón llegada esperar mañana largo historia acuerdo niño algo fuera nunca dentro amar línea taller hoja naturaleza amigos continuar hoy espacio razón libertad valor idea suerte horizonte alegría escribir paciencia abrazo bonito lluvia pregunta verdad sueño inicio ciudad cerca claro compartir aire campo fuerte suave ventana primero proyecto ejemplo futuro`.split(/\s+/),
     sentences: [
-      `Por la mañana, la ciudad despierta despacio y la luz se refleja en las ventanas.`,
-      `Tomarse el tiempo necesario no significa detenerse, sino avanzar con atención.`,
-      `Una buena idea puede empezar con una pregunta sencilla en el momento justo.`,
-      `Los pequeños hábitos dan grandes resultados cuando se practican cada día.`,
-      `Al final del camino, el jardín olía a lluvia y a hojas recién caídas.`,
-      `Escribir con precisión resulta más fácil cuando las manos encuentran su ritmo.`,
-      `Las palabras pueden acercar a las personas incluso a través de la distancia.`,
-      `La curiosidad abre puertas que la velocidad por sí sola no nos deja ver.`,
-      `Una taza caliente, una página en blanco y un poco de calma son un buen comienzo.`,
-      `Cada error que corriges es una oportunidad para aprender y volver a empezar.`
+      `A las ocho abre el mercado y los primeros clientes eligen fruta para la semana.`,
+      `En la biblioteca, una mesa junto a la ventana queda libre para los lectores.`,
+      `El tren cruza el campo antes de llegar a la estación junto al río.`,
+      `La receta lleva tomates, una cebolla, arroz y unas hojas de albahaca.`,
+      `Después de la lluvia, las calles reflejan los escaparates y las luces del barrio.`,
+      `Antes del viaje, consulta los horarios y guarda una copia de los billetes.`,
+      `Un cuaderno sobre la mesa contiene las notas de la reunión del lunes.`,
+      `Junto al mar, los pescadores reparan sus redes antes de salir del puerto.`,
+      `El museo presenta fotografías antiguas y mapas de la región.`,
+      `Cada sábado, los vecinos se reúnen en el jardín para intercambiar semillas y plantas.`
     ],
     ui: {
-      skip:'Ir a la prueba', headerDescriptor:'Un espacio para escribir mejor', preferences:'Preferencias', activityLink:'Tu actividad', languageLabel:'Idioma de la prueba y de la interfaz', introKicker:'Un momento para ti', headline:'Encuentra tu ritmo.', introText:'Unas palabras y un poco de tiempo. Conoce tu escritura y mejora a tu propio ritmo.', introAside:'Menos prisa.\nMás precisión.', testTitle:'Prueba de escritura', ready:'Todo listo para empezar', running:'Prueba en curso', finished:'Prueba terminada', format:'Formato', words:'Palabras', sentences:'Frases', duration:'Duración', yourText:'Tu texto', remaining:'Tiempo restante', inputLabel:'Escribe aquí el texto mostrado', typingHint:'Empieza a escribir para iniciar el cronómetro.', runningHint:'Sigue escribiendo; puedes corregir tus errores.', restart:'Reiniciar', resultOverline:'Prueba terminada', resultHeading:'Bien hecho.', resultDescription:'Este es tu resultado. Cada prueba es un nuevo punto de partida.', wpmLong:'palabras / min', speed:'Velocidad', wpmShort:'palabras/min', accuracy:'Precisión', errors:'Errores', keystrokes:'pulsaciones', playAgain:'Hacer otra prueba', share:'Compartir resultado', liveStats:'Estadísticas en directo', options:'Opciones', punctuation:'Puntuación', numbers:'Números', sound:'Sonido', howScores:'¿Cómo se calculan los resultados?', scoreExplanation:'La velocidad cuenta 5 caracteres correctos por palabra. La precisión incluye todas las pulsaciones, incluso las corregidas.', activity:'Tu actividad', personalBest:'Récord personal', firstScore:'Tu primer resultado te espera.', bestOn:'Récord obtenido el', completedTests:'Pruebas terminadas', averageSpeed:'Velocidad media', progress:'Tu progreso', lastEight:'Últimas 8 pruebas', chartEmpty:'Tu progreso aparecerá aquí después de tu primera prueba.', recentTests:'Pruebas recientes', clearHistory:'Borrar', historyEmpty:'Aún no hay pruebas terminadas.', privacy:'Tus resultados se guardan en este dispositivo.', footer:'Una pequeña pausa para tu teclado.', keyboardHint:'para reiniciar', escape:'Esc', dark:'Oscuro', light:'Claro', confirmChange:'Se interrumpirá la prueba actual. ¿Quieres continuar?', confirmClear:'¿Borrar todos los resultados guardados en este dispositivo?', shared:'Resultado compartido.', copied:'Resultado copiado.', copyFailed:'No se pudo copiar. Comprueba los permisos del navegador.', shareText:'He alcanzado {wpm} palabras/min con un {accuracy} % de precisión en Cadence. Te toca:', chartLabel:'Velocidad en las últimas pruebas', saved:'Guardado en este dispositivo', storageWarning:'El almacenamiento local no está disponible en este navegador.'
+      skip:'Ir a la prueba', headerDescriptor:"Práctica de mecanografía", preferences:'Preferencias', activityLink:'Tu actividad', languageLabel:'Idioma de la prueba y de la interfaz', headline:"Prueba de escritura.", introText:"Mide tu velocidad y precisión al escribir.", testTitle:"Práctica", ready:"Listo para empezar", running:'Prueba en curso', finished:'Prueba terminada', format:'Formato', words:'Palabras', sentences:'Frases', duration:'Duración', yourText:'Tu texto', remaining:'Tiempo restante', inputLabel:'Escribe aquí el texto mostrado', typingHint:'Empieza a escribir para iniciar el cronómetro.', runningHint:'Sigue escribiendo; puedes corregir tus errores.', restart:'Reiniciar', resultOverline:'Prueba terminada', resultHeading:"Resultados", wpmLong:'palabras / min', speed:'Velocidad', wpmShort:'palabras/min', accuracy:'Precisión', errors:'Errores', keystrokes:'pulsaciones', playAgain:'Hacer otra prueba', share:'Compartir resultado', liveStats:'Estadísticas en directo', options:'Opciones', punctuation:'Puntuación', numbers:'Números', sound:'Sonido', howScores:'¿Cómo se calculan los resultados?', scoreExplanation:'La velocidad cuenta 5 caracteres correctos por palabra. La precisión incluye todas las pulsaciones, incluso las corregidas.', activity:'Tu actividad', personalBest:'Récord personal', firstScore:"Sin resultados guardados.", bestOn:'Récord obtenido el', completedTests:'Pruebas terminadas', averageSpeed:'Velocidad media', progress:'Tu progreso', lastEight:'Últimas 8 pruebas', chartEmpty:"No hay pruebas para mostrar.", recentTests:'Pruebas recientes', clearHistory:'Borrar', historyEmpty:"No hay pruebas terminadas.", privacy:'Tus resultados se guardan en este dispositivo.', keyboardHint:'para reiniciar', escape:'Esc', dark:'Oscuro', light:'Claro', confirmChange:'Se interrumpirá la prueba actual. ¿Quieres continuar?', confirmClear:'¿Borrar todos los resultados guardados en este dispositivo?', shared:'Resultado compartido.', copied:'Resultado copiado.', copyFailed:'No se pudo copiar. Comprueba los permisos del navegador.', shareText:"Cadence: {wpm} palabras/min, {accuracy} % de precisión.", chartLabel:'Velocidad en las últimas pruebas', saved:'Guardado en este dispositivo', storageWarning:'El almacenamiento local no está disponible en este navegador.'
     }
   },
   pt: {
     label: 'Português', locale: 'pt-BR',
     words: `amanhã mundo ritmo caminho palavra juntos luz momento sorriso fácil janela teclado calma pensar cor detalhe viajar música papel viver sempre estrela letra livro flor história nuvem memória família respirar ouvir feliz rio sol minuto breve carinho floresta tempo pequeno lugar perto confiança descobrir movimento jardim rápido simples cada atenção entender língua encontrar olhar noite silêncio caminhar contar paisagem vontade casa estação aprender prazer natural avançar querido ontem coração chegada esperar longo acordo criança algo fora nunca dentro amar linha oficina folha natureza amigos continuar hoje espaço razão liberdade valor ideia sorte horizonte alegria escrever paciência abraço bonito chuva pergunta verdade sonho começo cidade perto claro compartilhar ar campo forte suave primeiro projeto exemplo futuro manhã presença palavra`.split(/\s+/),
     sentences: [
-      `Pela manhã, a cidade acorda devagar e a luz dança sobre as janelas.`,
-      `Ter calma não significa ficar parado, mas avançar com atenção.`,
-      `Uma boa ideia pode começar com uma pergunta simples no momento certo.`,
-      `Pequenos hábitos trazem grandes resultados quando são praticados todos os dias.`,
-      `No fim do caminho, o jardim tinha cheiro de chuva e de folhas recém caídas.`,
-      `Digitar com precisão fica mais fácil quando as mãos encontram seu próprio ritmo.`,
-      `As palavras têm o poder de aproximar as pessoas, mesmo a longas distâncias.`,
-      `A curiosidade abre portas que a velocidade sozinha não nos deixa enxergar.`,
-      `Uma bebida quente, uma página em branco e um pouco de silêncio são um bom começo.`,
-      `Cada erro corrigido é uma oportunidade de aprender e começar de novo.`
+      `Às oito, o mercado abre e os primeiros clientes escolhem frutas para a semana.`,
+      `Na biblioteca, uma mesa perto da janela fica livre para os leitores.`,
+      `O trem cruza o campo antes de chegar à estação perto do rio.`,
+      `A receita leva tomates, uma cebola, arroz e algumas folhas de manjericão.`,
+      `Depois da chuva, as ruas refletem as vitrines e as luzes do bairro.`,
+      `Antes da viagem, consulte os horários e guarde uma cópia das passagens.`,
+      `Um caderno sobre a mesa contém as anotações da reunião de segunda-feira.`,
+      `À beira-mar, os pescadores consertam as redes antes de sair do porto.`,
+      `O museu apresenta fotografias antigas e mapas da região.`,
+      `Aos sábados, os vizinhos se encontram no jardim para trocar sementes e plantas.`
     ],
     ui: {
-      skip:'Ir para o teste', headerDescriptor:'Um espaço para digitar melhor', preferences:'Preferências', activityLink:'Sua atividade', languageLabel:'Idioma do teste e da interface', introKicker:'Um momento para você', headline:'Encontre seu ritmo.', introText:'Algumas palavras e um pouco de tempo. Conheça sua digitação e melhore no seu ritmo.', introAside:'Menos pressa.\nMais precisão.', testTitle:'Teste de digitação', ready:'Tudo pronto para começar', running:'Teste em andamento', finished:'Teste concluído', format:'Formato', words:'Palavras', sentences:'Frases', duration:'Duração', yourText:'Seu texto', remaining:'Tempo restante', inputLabel:'Digite aqui o texto exibido', typingHint:'Comece a digitar para iniciar o cronômetro.', runningHint:'Continue digitando; você pode corrigir seus erros.', restart:'Recomeçar', resultOverline:'Teste concluído', resultHeading:'Muito bem.', resultDescription:'Este é seu resultado. Cada teste é um novo ponto de partida.', wpmLong:'palavras / min', speed:'Velocidade', wpmShort:'palavras/min', accuracy:'Precisão', errors:'Erros', keystrokes:'toques', playAgain:'Fazer outro teste', share:'Compartilhar resultado', liveStats:'Estatísticas em tempo real', options:'Opções', punctuation:'Pontuação', numbers:'Números', sound:'Som', howScores:'Como os resultados são calculados?', scoreExplanation:'A velocidade conta 5 caracteres corretos por palavra. A precisão inclui todos os toques, mesmo os corrigidos.', activity:'Sua atividade', personalBest:'Recorde pessoal', firstScore:'Seu primeiro resultado está esperando.', bestOn:'Recorde feito em', completedTests:'Testes concluídos', averageSpeed:'Velocidade média', progress:'Seu progresso', lastEight:'Últimos 8 testes', chartEmpty:'Seu progresso aparecerá aqui depois do primeiro teste.', recentTests:'Testes recentes', clearHistory:'Apagar', historyEmpty:'Nenhum teste concluído ainda.', privacy:'Seus resultados ficam neste dispositivo.', footer:'Uma pequena pausa para seu teclado.', keyboardHint:'para recomeçar', escape:'Esc', dark:'Escuro', light:'Claro', confirmChange:'O teste atual será interrompido. Deseja continuar?', confirmClear:'Apagar todos os resultados salvos neste dispositivo?', shared:'Resultado compartilhado.', copied:'Resultado copiado.', copyFailed:'Não foi possível copiar. Verifique as permissões do navegador.', shareText:'Alcancei {wpm} palavras/min com {accuracy}% de precisão no Cadence. Sua vez:', chartLabel:'Velocidade nos últimos testes', saved:'Salvo neste dispositivo', storageWarning:'O armazenamento local não está disponível neste navegador.'
+      skip:'Ir para o teste', headerDescriptor:"Treino de digitação", preferences:'Preferências', activityLink:'Sua atividade', languageLabel:'Idioma do teste e da interface', headline:"Teste de digitação.", introText:"Meça sua velocidade e precisão ao digitar.", testTitle:"Treino", ready:"Pronto para começar", running:'Teste em andamento', finished:'Teste concluído', format:'Formato', words:'Palavras', sentences:'Frases', duration:'Duração', yourText:'Seu texto', remaining:'Tempo restante', inputLabel:'Digite aqui o texto exibido', typingHint:'Comece a digitar para iniciar o cronômetro.', runningHint:'Continue digitando; você pode corrigir seus erros.', restart:'Recomeçar', resultOverline:'Teste concluído', resultHeading:"Resultados", wpmLong:'palavras / min', speed:'Velocidade', wpmShort:'palavras/min', accuracy:'Precisão', errors:'Erros', keystrokes:'toques', playAgain:'Fazer outro teste', share:'Compartilhar resultado', liveStats:'Estatísticas em tempo real', options:'Opções', punctuation:'Pontuação', numbers:'Números', sound:'Som', howScores:'Como os resultados são calculados?', scoreExplanation:'A velocidade conta 5 caracteres corretos por palavra. A precisão inclui todos os toques, mesmo os corrigidos.', activity:'Sua atividade', personalBest:'Recorde pessoal', firstScore:"Nenhum resultado salvo.", bestOn:'Recorde feito em', completedTests:'Testes concluídos', averageSpeed:'Velocidade média', progress:'Seu progresso', lastEight:'Últimos 8 testes', chartEmpty:"Nenhum teste para mostrar.", recentTests:'Testes recentes', clearHistory:'Apagar', historyEmpty:"Nenhum teste concluído.", privacy:'Seus resultados ficam neste dispositivo.', keyboardHint:'para recomeçar', escape:'Esc', dark:'Escuro', light:'Claro', confirmChange:'O teste atual será interrompido. Deseja continuar?', confirmClear:'Apagar todos os resultados salvos neste dispositivo?', shared:'Resultado compartilhado.', copied:'Resultado copiado.', copyFailed:'Não foi possível copiar. Verifique as permissões do navegador.', shareText:"Cadence: {wpm} palavras/min, {accuracy}% de precisão.", chartLabel:'Velocidade nos últimos testes', saved:'Salvo neste dispositivo', storageWarning:'O armazenamento local não está disponível neste navegador.'
     }
   },
   de: {
     label: 'Deutsch', locale: 'de-DE',
     words: `morgen welt rhythmus weg wörter zusammen licht augenblick lächeln einfach fenster tastatur ruhe denken farbe detail reisen musik papier leben immer stern buch blume geschichte wolke erinnerung familie atmen hören glücklich fluss sonne minute bald wald zeit klein ort vertrauen entdecken bewegung garten schnell langsam klar aufmerksamkeit verstehen sprache finden schauen nacht stille gehen zählen landschaft wunsch haus jahreszeit lernen freude natürlich gestern herz warten lang kind draußen lieben zeile werkstatt blatt natur freunde heute raum freiheit wert idee glück horizont geduld umarmung schön regen frage wahrheit traum anfang stadt teilen luft feld stark sanft zuerst zukunft morgen übung freundlich wissen möchten glauben sommer ändern grüßen ruhig plötzlich`.split(/\s+/),
     sentences: [
-      `Am Morgen erwacht die Stadt langsam und das Licht tanzt auf den Fenstern.`,
-      `Sich Zeit zu nehmen bedeutet nicht stillzustehen, sondern bewusst voranzugehen.`,
-      `Eine gute Idee beginnt oft mit einer einfachen Frage zum richtigen Zeitpunkt.`,
-      `Kleine Gewohnheiten führen zu großen Ergebnissen, wenn man sie täglich pflegt.`,
-      `Am Ende des Weges roch der Garten nach Regen und frisch gefallenem Laub.`,
-      `Genaues Tippen fällt leichter, wenn die Hände ihren eigenen Rhythmus finden.`,
-      `Worte können Menschen einander näherbringen, selbst über große Entfernungen.`,
-      `Neugier öffnet Türen, die Geschwindigkeit allein nicht sichtbar machen kann.`,
-      `Eine warme Tasse, eine leere Seite und etwas Ruhe sind ein guter Anfang.`,
-      `Jeder korrigierte Fehler ist eine Gelegenheit, zu lernen und neu zu beginnen.`
+      `Um acht Uhr öffnet der Markt und die ersten Kunden wählen Obst für die Woche.`,
+      `In der Bibliothek bleibt ein Tisch am Fenster für die Leser frei.`,
+      `Der Zug fährt durch die Landschaft und erreicht den Bahnhof am Fluss.`,
+      `Für das Rezept braucht man Tomaten, eine Zwiebel, Reis und frisches Basilikum.`,
+      `Nach dem Regen spiegeln sich die Schaufenster und die Lichter in den Straßen.`,
+      `Vor der Reise solltest du die Fahrzeiten prüfen und eine Kopie der Tickets mitnehmen.`,
+      `Auf dem Schreibtisch liegt ein Heft mit den Notizen vom Treffen am Montag.`,
+      `Am Meer reparieren die Fischer ihre Netze, bevor sie den Hafen verlassen.`,
+      `Das Museum zeigt alte Fotografien und Karten aus der Region.`,
+      `Jeden Samstag treffen sich die Nachbarn im Garten und tauschen Samen und Pflanzen.`
     ],
     ui: {
-      skip:'Zum Test springen', headerDescriptor:'Ein Ort, um besser zu tippen', preferences:'Einstellungen', activityLink:'Deine Aktivität', languageLabel:'Sprache des Tests und der Oberfläche', introKicker:'Ein Moment für dich', headline:'Finde deinen Rhythmus.', introText:'Ein paar Wörter und etwas Zeit. Entdecke dein Tipptempo und verbessere dich in deinem eigenen Rhythmus.', introAside:'Weniger Eile.\nMehr Genauigkeit.', testTitle:'Tipptest', ready:'Bereit, wenn du es bist', running:'Test läuft', finished:'Test beendet', format:'Format', words:'Wörter', sentences:'Sätze', duration:'Dauer', yourText:'Dein Text', remaining:'Verbleibende Zeit', inputLabel:'Tippe hier den angezeigten Text', typingHint:'Beginne zu tippen, um die Zeit zu starten.', runningHint:'Tippe weiter; du kannst deine Fehler korrigieren.', restart:'Neu starten', resultOverline:'Test beendet', resultHeading:'Gut gemacht.', resultDescription:'Hier ist dein Ergebnis. Jeder Test ist ein neuer Anfang.', wpmLong:'Wörter / Min.', speed:'Tempo', wpmShort:'Wörter/Min.', accuracy:'Genauigkeit', errors:'Fehler', keystrokes:'Anschläge', playAgain:'Neuen Test starten', share:'Ergebnis teilen', liveStats:'Live-Statistiken', options:'Optionen', punctuation:'Satzzeichen', numbers:'Zahlen', sound:'Ton', howScores:'Wie werden die Ergebnisse berechnet?', scoreExplanation:'Für das Tempo zählen 5 korrekte Zeichen als ein Wort. Die Genauigkeit berücksichtigt alle Anschläge, auch korrigierte.', activity:'Deine Aktivität', personalBest:'Persönlicher Rekord', firstScore:'Dein erstes Ergebnis wartet auf dich.', bestOn:'Rekord vom', completedTests:'Beendete Tests', averageSpeed:'Durchschnittstempo', progress:'Dein Fortschritt', lastEight:'Letzte 8 Tests', chartEmpty:'Nach deinem ersten Test erscheint hier dein Fortschritt.', recentTests:'Letzte Tests', clearHistory:'Löschen', historyEmpty:'Noch keine Tests beendet.', privacy:'Deine Ergebnisse bleiben auf diesem Gerät.', footer:'Eine kleine Pause für deine Tastatur.', keyboardHint:'zum Neustarten', escape:'Esc', dark:'Dunkel', light:'Hell', confirmChange:'Der laufende Test wird abgebrochen. Fortfahren?', confirmClear:'Alle auf diesem Gerät gespeicherten Ergebnisse löschen?', shared:'Ergebnis geteilt.', copied:'Ergebnis kopiert.', copyFailed:'Kopieren nicht möglich. Prüfe die Browserberechtigungen.', shareText:'Ich habe auf Cadence {wpm} Wörter/Min. mit {accuracy} % Genauigkeit erreicht. Du bist dran:', chartLabel:'Tempo der letzten Tests', saved:'Auf diesem Gerät gespeichert', storageWarning:'Der lokale Speicher ist in diesem Browser nicht verfügbar.'
+      skip:'Zum Test springen', headerDescriptor:"Tipptraining", preferences:'Einstellungen', activityLink:'Deine Aktivität', languageLabel:'Sprache des Tests und der Oberfläche', headline:"Tipptest.", introText:"Miss dein Tipptempo und deine Genauigkeit.", testTitle:"Übung", ready:"Bereit zum Start", running:'Test läuft', finished:'Test beendet', format:'Format', words:'Wörter', sentences:'Sätze', duration:'Dauer', yourText:'Dein Text', remaining:'Verbleibende Zeit', inputLabel:'Tippe hier den angezeigten Text', typingHint:'Beginne zu tippen, um die Zeit zu starten.', runningHint:'Tippe weiter; du kannst deine Fehler korrigieren.', restart:'Neu starten', resultOverline:'Test beendet', resultHeading:"Ergebnisse", wpmLong:'Wörter / Min.', speed:'Tempo', wpmShort:'Wörter/Min.', accuracy:'Genauigkeit', errors:'Fehler', keystrokes:'Anschläge', playAgain:'Neuen Test starten', share:'Ergebnis teilen', liveStats:'Live-Statistiken', options:'Optionen', punctuation:'Satzzeichen', numbers:'Zahlen', sound:'Ton', howScores:'Wie werden die Ergebnisse berechnet?', scoreExplanation:'Für das Tempo zählen 5 korrekte Zeichen als ein Wort. Die Genauigkeit berücksichtigt alle Anschläge, auch korrigierte.', activity:'Deine Aktivität', personalBest:'Persönlicher Rekord', firstScore:"Keine Ergebnisse gespeichert.", bestOn:'Rekord vom', completedTests:'Beendete Tests', averageSpeed:'Durchschnittstempo', progress:'Dein Fortschritt', lastEight:'Letzte 8 Tests', chartEmpty:"Keine Tests vorhanden.", recentTests:'Letzte Tests', clearHistory:'Löschen', historyEmpty:"Keine Tests abgeschlossen.", privacy:'Deine Ergebnisse bleiben auf diesem Gerät.', keyboardHint:'zum Neustarten', escape:'Esc', dark:'Dunkel', light:'Hell', confirmChange:'Der laufende Test wird abgebrochen. Fortfahren?', confirmClear:'Alle auf diesem Gerät gespeicherten Ergebnisse löschen?', shared:'Ergebnis geteilt.', copied:'Ergebnis kopiert.', copyFailed:'Kopieren nicht möglich. Prüfe die Browserberechtigungen.', shareText:"Cadence: {wpm} Wörter/Min., {accuracy} % Genauigkeit.", chartLabel:'Tempo der letzten Tests', saved:'Auf diesem Gerät gespeichert', storageWarning:'Der lokale Speicher ist in diesem Browser nicht verfügbar.'
     }
   }
 };
+
+const INSTALL_TEXT = {
+  fr: { install:'Installer l’application', installTitle:'Installer Cadence', close:'Fermer', installIOS:'Dans Safari, touchez Partager, puis « Sur l’écran d’accueil ».', installMac:'Dans Safari, ouvrez Fichier, puis choisissez « Ajouter au Dock ».', installBrowser:'Dans le menu du navigateur, choisissez l’option d’installation ou d’ajout à l’écran d’accueil, si elle est proposée.' },
+  en: { install:'Install app', installTitle:'Install Cadence', close:'Close', installIOS:'In Safari, tap Share, then “Add to Home Screen”.', installMac:'In Safari, open File, then choose “Add to Dock”.', installBrowser:'Open your browser menu and choose the install or add to home screen option, if available.' },
+  es: { install:'Instalar aplicación', installTitle:'Instalar Cadence', close:'Cerrar', installIOS:'En Safari, toca Compartir y después «Añadir a pantalla de inicio».', installMac:'En Safari, abre Archivo y elige «Añadir al Dock».', installBrowser:'Abre el menú del navegador y elige la opción de instalar o añadir a la pantalla de inicio, si aparece.' },
+  pt: { install:'Instalar aplicativo', installTitle:'Instalar Cadence', close:'Fechar', installIOS:'No Safari, toque em Compartilhar e depois em «Adicionar à Tela de Início».', installMac:'No Safari, abra Arquivo e escolha «Adicionar ao Dock».', installBrowser:'Abra o menu do navegador e escolha a opção de instalar ou adicionar à tela inicial, se estiver disponível.' },
+  de: { install:'App installieren', installTitle:'Cadence installieren', close:'Schließen', installIOS:'Tippe in Safari auf Teilen und dann auf „Zum Home-Bildschirm“.', installMac:'Öffne in Safari das Menü Ablage und wähle „Zum Dock hinzufügen“.', installBrowser:'Öffne das Browsermenü und wähle die Option zum Installieren oder zum Hinzufügen zum Startbildschirm, falls vorhanden.' }
+};
+Object.keys(INSTALL_TEXT).forEach(language => Object.assign(LANGUAGES[language].ui, INSTALL_TEXT[language]));
 
 const SETTINGS_KEY = 'cadence.settings.v1';
 const HISTORY_KEY = 'cadence.history.v1';
@@ -306,7 +313,7 @@ function playKeySound(isCorrect) {
     gain.gain.exponentialRampToValueAtTime(0.001, audioContext.currentTime + 0.055);
     oscillator.connect(gain); gain.connect(audioContext.destination);
     oscillator.start(); oscillator.stop(audioContext.currentTime + 0.06);
-  } catch { /* Audio is an optional enhancement. */ }
+  } catch {  }
 }
 function onTyping(event) {
   if (!session || session.status === 'finished') return;
@@ -335,7 +342,7 @@ function onTyping(event) {
   paintChanges(previous);
   refreshLive(now);
   if (!event.isComposing) {
-    try { $('typingInput').setSelectionRange(next.length, next.length); } catch { /* Some input methods manage their own selection. */ }
+    try { $('typingInput').setSelectionRange(next.length, next.length); } catch {  }
   }
   if (next.length >= session.passage.length && session.status === 'running') finishTest(now);
 }
@@ -357,7 +364,6 @@ function finishTest(now) {
   const percent = document.createElement('span'); percent.textContent = '%'; $('resultAccuracy').append(percent);
   $('resultErrors').textContent = String(values.errors);
   $('resultTime').textContent = `${Math.round(values.elapsed)} s`;
-  $('resultDescription').textContent = t('resultDescription');
   renderHistory();
   $('resultHeading').focus({ preventScroll:true });
 }
@@ -444,7 +450,47 @@ $('clearHistory').addEventListener('click', () => {
   history = []; writeStored(HISTORY_KEY, history); renderHistory();
 });
 document.addEventListener('keydown', event => {
-  if (event.key === 'Escape' && !event.isComposing) { event.preventDefault(); resetTest(true); }
+  if (event.key === 'Escape' && !event.isComposing && !$('installDialog').open) { event.preventDefault(); resetTest(true); }
 });
 renderStatic();
 resetTest();
+
+let deferredInstallPrompt = null;
+const standaloneDisplay = window.matchMedia('(display-mode: standalone)');
+function syncInstallButton() {
+  const installed = standaloneDisplay.matches || navigator.standalone === true;
+  $('installButton').hidden = installed || !window.isSecureContext || !('serviceWorker' in navigator) || location.protocol === 'file:';
+}
+window.addEventListener('beforeinstallprompt', event => {
+  event.preventDefault();
+  deferredInstallPrompt = event;
+  syncInstallButton();
+});
+window.addEventListener('appinstalled', () => {
+  deferredInstallPrompt = null;
+  $('installButton').hidden = true;
+});
+if (standaloneDisplay.addEventListener) standaloneDisplay.addEventListener('change', syncInstallButton);
+else if (standaloneDisplay.addListener) standaloneDisplay.addListener(syncInstallButton);
+$('installButton').addEventListener('click', async () => {
+  if (deferredInstallPrompt) {
+    const prompt = deferredInstallPrompt;
+    deferredInstallPrompt = null;
+    try {
+      await prompt.prompt();
+      await prompt.userChoice;
+      return;
+    } catch {}
+  }
+  const ios = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  const safariMac = /Macintosh/.test(navigator.userAgent) && /Safari/.test(navigator.userAgent) && !/Chrome|Chromium|CriOS|Edg|OPR/.test(navigator.userAgent);
+  $('installHelp').textContent = t(ios ? 'installIOS' : safariMac ? 'installMac' : 'installBrowser');
+  $('installDialog').showModal();
+});
+$('closeInstallDialog').addEventListener('click', () => $('installDialog').close());
+syncInstallButton();
+if ('serviceWorker' in navigator && window.isSecureContext && location.protocol !== 'file:') {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js', { updateViaCache:'none' }).catch(() => {});
+  });
+}

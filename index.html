@@ -4,12 +4,16 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#e9e9e7">
-  <meta name="description" content="Cadence, un espace de frappe pour progresser à votre rythme.">
-  <title>Cadence — votre espace de frappe</title>
-  <link rel="icon" href="data:,">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <meta name="description" content="Test de frappe : vitesse, précision et entraînement au clavier.">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Cadence">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <title>Cadence — test de frappe</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="./icons/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="./icons/apple-touch-icon.png">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="stylesheet" href="./fonts.css">
   <link rel="stylesheet" href="./style.css">
   <script src="./app.js" defer></script>
 </head>
@@ -17,8 +21,8 @@
   <a class="skip-link" href="#test" data-i18n="skip">Aller au test</a>
   <header class="site-header">
     <div class="header-inner">
-      <a class="wordmark" href="./" translate="no" aria-label="Cadence — accueil">cadence<span>.</span></a>
-      <span class="header-description" data-i18n="headerDescriptor">Un espace pour mieux taper</span>
+      <a class="wordmark" href="./" translate="no" aria-label="Cadence — accueil"><img src="./icons/icon-192.png" width="32" height="32" alt=""><span class="brand-name">cadence<span class="brand-accent">.</span></span></a>
+      <span class="header-description" data-i18n="headerDescriptor">Entraînement au clavier</span>
       <nav class="header-actions" aria-label="Préférences" data-i18n-aria="preferences">
         <a class="activity-link" href="#activity" data-i18n="activityLink">Votre activité</a>
         <label class="language-control">
@@ -43,14 +47,10 @@
   <main class="page" id="main">
     <section class="intro" aria-labelledby="page-title">
       <div class="intro-copy">
-        <div class="intro-kicker"><span aria-hidden="true"></span><span data-i18n="introKicker">Votre moment à vous</span></div>
-        <h1 id="page-title" data-i18n="headline">Trouvez votre rythme.</h1>
-        <p data-i18n="introText">Quelques mots, un peu de temps. Faites le point sur votre frappe et progressez à votre rythme.</p>
+        <h1 id="page-title" data-i18n="headline">Test de frappe.</h1>
+        <p data-i18n="introText">Mesurez votre vitesse et votre précision au clavier.</p>
       </div>
-      <div class="intro-note" aria-hidden="true">
-        <span class="note-rule"></span>
-        <span data-i18n="introAside">Moins de précipitation.<br>Plus de précision.</span>
-      </div>
+      <button class="install-button" id="installButton" type="button" hidden data-i18n="install">Installer l’application</button>
     </section>
 
     <div class="workspace" id="workspace">
@@ -58,9 +58,9 @@
         <div class="panel-heading">
           <div class="panel-heading-title">
             <span class="status-dot" aria-hidden="true"></span>
-            <h2 id="test-heading" data-i18n="testTitle">Test de frappe</h2>
+            <h2 id="test-heading" data-i18n="testTitle">Entraînement</h2>
           </div>
-          <span class="test-status" id="testStatus" role="status">Prêt quand vous l’êtes</span>
+          <span class="test-status" id="testStatus" role="status">Prêt à commencer</span>
         </div>
 
         <div class="configuration">
@@ -113,10 +113,9 @@
 
           <div class="result-view" id="resultView" hidden>
             <div class="result-heading-row">
-              <div><span class="result-overline" data-i18n="resultOverline">Test terminé</span><h3 id="resultHeading" tabindex="-1" data-i18n="resultHeading">Bien joué.</h3></div>
+              <div><span class="result-overline" data-i18n="resultOverline">Test terminé</span><h3 id="resultHeading" tabindex="-1" data-i18n="resultHeading">Résultats</h3></div>
               <span class="result-time" id="resultTime">30 s</span>
             </div>
-            <p class="result-description" id="resultDescription">Voici votre résultat.</p>
             <div class="result-metrics">
               <div><strong id="resultWpm">0</strong><span data-i18n="wpmLong">mots / min</span></div>
               <div><strong id="resultAccuracy">100<span>%</span></strong><span data-i18n="accuracy">Précision</span></div>
@@ -155,7 +154,7 @@
         <div class="best-area">
           <span class="activity-label" data-i18n="personalBest">Record personnel</span>
           <div class="best-number"><strong id="bestScore">—</strong><span data-i18n="wpmShort">mots/min</span></div>
-          <p id="bestCaption">Votre premier score vous attend.</p>
+          <p id="bestCaption">Aucun résultat enregistré.</p>
         </div>
         <div class="activity-totals">
           <div><span data-i18n="completedTests">Tests terminés</span><strong id="totalTests">0</strong></div>
@@ -164,21 +163,27 @@
         <div class="progress-section">
           <div class="aside-section-heading"><h3 data-i18n="progress">Votre progression</h3><span data-i18n="lastEight">8 derniers tests</span></div>
           <div class="chart" id="chart" aria-label="Progression des huit derniers tests"></div>
-          <p class="chart-empty" id="chartEmpty" data-i18n="chartEmpty">Votre progression apparaîtra ici après un premier test.</p>
+          <p class="chart-empty" id="chartEmpty" data-i18n="chartEmpty">Aucun test à afficher.</p>
         </div>
         <div class="history-section">
           <div class="aside-section-heading"><h3 data-i18n="recentTests">Tests récents</h3><button type="button" id="clearHistory" hidden data-i18n="clearHistory">Effacer</button></div>
           <ul class="history-list" id="historyList"></ul>
-          <p class="history-empty" id="historyEmpty" data-i18n="historyEmpty">Pas encore de test terminé.</p>
+          <p class="history-empty" id="historyEmpty" data-i18n="historyEmpty">Aucun test terminé.</p>
         </div>
         <p class="privacy-note"><span class="privacy-dot" aria-hidden="true"></span><span data-i18n="privacy">Vos résultats restent sur cet appareil.</span></p>
       </aside>
     </div>
 
     <footer class="page-footer">
-      <p data-i18n="footer">Une petite pause pour votre clavier.</p>
       <p><kbd>Échap</kbd> <span data-i18n="keyboardHint">pour recommencer</span></p>
     </footer>
   </main>
+  <dialog class="install-dialog" id="installDialog" aria-labelledby="installDialogTitle" aria-describedby="installHelp">
+    <div class="dialog-body">
+      <h2 id="installDialogTitle" data-i18n="installTitle">Installer Cadence</h2>
+      <p id="installHelp">Dans le menu de votre navigateur, choisissez « Installer l’application » ou « Ajouter à l’écran d’accueil ».</p>
+      <button class="primary-button" id="closeInstallDialog" type="button" data-i18n="close">Fermer</button>
+    </div>
+  </dialog>
 </body>
 </html>
